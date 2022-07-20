@@ -1,61 +1,30 @@
 {
-  "/assets/Roboto-Bold.ttf": "/assets/ee7b96fa85d8fdb8c126409326ac2d2b.ttf",
-  "/assets/Roboto-Bold.woff": "/assets/eb43b4c3b3b6cac224f76c0a524946a1.woff",
-  "/assets/Roboto-Bold.woff2": "/assets/b52fac2bb93c5858f3f2675e4b52e1de.woff2",
-  "/assets/Roboto-BoldItalic.ttf": "/assets/1eb7a893589ddce89d81cdb22a356660.ttf",
-  "/assets/Roboto-BoldItalic.woff": "/assets/563c4bd6da24f5ce46e7aee2aace04f9.woff",
-  "/assets/Roboto-BoldItalic.woff2": "/assets/94008e69aaf05da75c0bbf8f8bb0db41.woff2",
-  "/assets/Roboto-Italic.ttf": "/assets/42bbe4eefcde1297b11dc4b6491e9746.ttf",
-  "/assets/Roboto-Italic.woff": "/assets/6521f388081e84791dba294c9e7cfb4e.woff",
-  "/assets/Roboto-Italic.woff2": "/assets/4357beb823a5f8d65c260f045d9e019a.woff2",
-  "/assets/Roboto-Medium.ttf": "/assets/d08840599e05db7345652d3d417574a9.ttf",
-  "/assets/Roboto-Medium.woff": "/assets/7b225d4d9324ee54ce6d9ec50e339668.woff",
-  "/assets/Roboto-Medium.woff2": "/assets/90d1676003d9c28c04994c18bfd8b558.woff2",
-  "/assets/Roboto-MediumItalic.ttf": "/assets/bd19ad60600a1537c00d3b4923a5e5de.ttf",
-  "/assets/Roboto-MediumItalic.woff": "/assets/5df7f0532c1c39e04011b2ab0be1fe3c.woff",
-  "/assets/Roboto-MediumItalic.woff2": "/assets/13ec0eb5bdb821ff4930237d7c9f943f.woff2",
-  "/assets/Roboto-Regular.ttf": "/assets/3e1af3ef546b9e6ecef9f3ba197bf7d2.ttf",
-  "/assets/Roboto-Regular.woff": "/assets/878ad7158f6fa9136d796d4bad613bc2.woff",
-  "/assets/Roboto-Regular.woff2": "/assets/73f0a88bbca1bec19fb1303c689d04c6.woff2",
-  "access.css": "2.694f02286d2c06a2a932.css",
-  "access.js": "2.694f02286d2c06a2a932.js",
-  "actions.css": "3.1e3c429f6dcf5273e433.css",
-  "actions.js": "3.1e3c429f6dcf5273e433.js",
-  "apps.css": "4.e5ce92921b91cd47c36d.css",
-  "apps.js": "4.e5ce92921b91cd47c36d.js",
-  "clusters.css": "5.6c2dfa7827465fe6eaa4.css",
-  "clusters.js": "5.6c2dfa7827465fe6eaa4.js",
-  "common.css": "1.1ac5cb142d1af3d03133.css",
-  "common.js": "1.1ac5cb142d1af3d03133.js",
-  "console.css": "6.c7cb2f94207598572b82.css",
-  "console.js": "6.c7cb2f94207598572b82.js",
-  "devops.css": "7.25c448e1485d288d54eb.css",
-  "devops.js": "7.25c448e1485d288d54eb.js",
+  "access.js": "access.js",
+  "actions.js": "actions.js",
+  "apps.js": "apps.js",
+  "clusters.js": "clusters.js",
+  "common.js": "common.js",
+  "console.js": "console.js",
+  "devops.js": "devops.js",
   "entrypoints": {
     "main": {
-      "css": ["main.10445dacf9f6a8dcf932.css"],
-      "js": ["main.10445dacf9f6a8dcf932.js"]
+      "js": [
+        "main.js"
+      ]
     },
     "terminalEntry": {
-      "css": ["terminalEntry.67d673e10fd62b5abb15.css"],
-      "js": ["terminalEntry.67d673e10fd62b5abb15.js"]
+      "js": [
+        "terminalEntry.js"
+      ]
     }
   },
-  "fedprojects.css": "8.702f45ba80ade3fbb363.css",
-  "fedprojects.js": "8.702f45ba80ade3fbb363.js",
-  "main.css": "main.10445dacf9f6a8dcf932.css",
-  "main.js": "main.10445dacf9f6a8dcf932.js",
-  "projects.css": "10.29624f52879873c94fc2.css",
-  "projects.js": "10.29624f52879873c94fc2.js",
-  "react-ace.css": "11.a99d94557f6601378ecb.css",
-  "react-ace.js": "11.a99d94557f6601378ecb.js",
-  "settings.css": "12.4f333c68d43394c90b00.css",
-  "settings.js": "12.4f333c68d43394c90b00.js",
-  "terminal.css": "13.31d04d8074c594aa7a3e.css",
-  "terminal.js": "13.31d04d8074c594aa7a3e.js",
-  "terminalEntry.css": "terminalEntry.67d673e10fd62b5abb15.css",
-  "terminalEntry.js": "terminalEntry.67d673e10fd62b5abb15.js",
-  "vendor.js": "0.3600396a44b9af947347.js",
-  "workspaces.css": "15.485e94aab0b1971805c0.css",
-  "workspaces.js": "15.485e94aab0b1971805c0.js"
+  "fedprojects.js": "fedprojects.js",
+  "main.js": "main.js",
+  "projects.js": "projects.js",
+  "react-ace.js": "react-ace.js",
+  "settings.js": "settings.js",
+  "terminal.js": "terminal.js",
+  "terminalEntry.js": "terminalEntry.js",
+  "vendor.js": "vendor.js",
+  "workspaces.js": "workspaces.js"
 }

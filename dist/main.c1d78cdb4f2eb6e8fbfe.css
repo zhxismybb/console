@@ -7926,7 +7926,7 @@ pre {
   align-content: space-around;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
-  padding-top: 140px;
+  height: 100%;
 }
 ._2XzvCEm6d6i5uRhiZjz5C9 {
   position: relative;
@@ -7936,17 +7936,6 @@ pre {
 ._3r9vxHt7hiWvi5JnCUq3cT {
   -ms-flex: 1 1;
   flex: 1 1;
-}
-input:-internal-autofill-selected {
-  -webkit-appearance: menulist-button;
-  -moz-appearance: menulist-button;
-  appearance: menulist-button;
-  background-image: none !important;
-  background-color: -internal-light-dark(
-    #e8f0fe,
-    rgba(70, 90, 126, 0.4)
-  ) !important;
-  color: fieldtext !important;
 }
 ._1_GMngPtJqDZLT09A3KSHJ {
   position: absolute;

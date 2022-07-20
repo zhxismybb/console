@@ -103,7 +103,7 @@
   align-items: center;
   align-content: space-around;
   flex-wrap: nowrap;
-  padding-top: 140px;
+  height: 100%;
 }
 .relativePos {
   position: relative;
@@ -111,14 +111,4 @@
 }
 .pageRight {
   flex: 1;
-}
-
-input:-internal-autofill-selected {
-  appearance: menulist-button;
-  background-image: none !important;
-  background-color: -internal-light-dark(
-    rgb(232, 240, 254),
-    rgba(70, 90, 126, 0.4)
-  ) !important;
-  color: fieldtext !important;
 }
