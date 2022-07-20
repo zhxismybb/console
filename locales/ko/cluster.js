@@ -76,7 +76,7 @@ module.exports = {
   'etcd Backup Dir': 'etcd Backup Dir',
   'etcd Backup Period': 'etcd Backup Period',
   'Keep Backup Number': 'Keep Backup Number',
-  'KubeSphere Settings': 'KubeSphere Settings',
+  'KubeSphere Settings': 'Xcloud Settings',
 
   NO_CLUSTER_TIP_DESC:
     'A cluster is a group of nodes (physical or virtual machines) running Kubernetes, and the function of Kubesphere also depends on the nodes in the cluster.',
@@ -90,7 +90,7 @@ module.exports = {
 
   INVITE_CLUSTER_MEMBER_DESC: 'You can invite new members to this cluster.',
 
-  CLUSTER_API_SERVER_TITLE: 'Kubesphere API Server to be added to the cluster',
+  CLUSTER_API_SERVER_TITLE: 'Xcloud API Server to be added to the cluster',
   CLUSTER_API_SERVER_DESC:
     'You need to input the KubeSphere API Server address to be added to the cluster',
 

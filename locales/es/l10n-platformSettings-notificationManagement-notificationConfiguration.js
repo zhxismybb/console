@@ -19,7 +19,7 @@ module.exports = {
   // Banner
   NOTIFICATION_MANAGEMENT: 'Gestión de notificaciones',
   NOTIFICATION_CONFIGURATION: 'Configuración de la notificación',
-  NOTIFICATION_CONFIGURATION_DESC: 'KubeSphere supports notification configuration for multiple notification channels. You can set servers and recipients, and enable or disable notifications.',
+  NOTIFICATION_CONFIGURATION_DESC: 'Xcloud supports notification configuration for multiple notification channels. You can set servers and recipients, and enable or disable notifications.',
   NOTIFICATION_EMAIL: 'Email',
   // Email
   MAIL_TITLE: 'Email',

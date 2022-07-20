@@ -1,0 +1,15 @@
+exports.id = "locale-es";
+exports.modules = {
+
+/***/ "./locales/es/dashboard.js":
+/*!*********************************!*\
+  !*** ./locales/es/dashboard.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("/*\n * This file is part of KubeSphere Console.\n * Copyright (C) 2019 The KubeSphere Console Authors.\n *\n * KubeSphere Console is free software: you can redistribute it and/or modify\n * it under the terms of the GNU Affero General Public License as published by\n * the Free Software Foundation, either version 3 of the License, or\n * (at your option) any later version.\n *\n * KubeSphere Console is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU Affero General Public License for more details.\n *\n * You should have received a copy of the GNU Affero General Public License\n * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.\n */\nmodule.exports = {\n  'Cluster Status': 'Estado del clúster',\n  'CPU Load Average': 'Promedio de carga de la CPU',\n  'CPU Usage': 'Uso de CPU',\n  'CPU Utilization': 'Utilización de CPU',\n  'create project': 'crear proyecto',\n  CronJobs: 'CronJobs',\n  dashboard: 'dashboard',\n  Dashboard: 'Dashboard',\n  'Disk Throughput': 'Tasa de transferencia de disco',\n  'Disk Utilization': 'Utilización de disco',\n  'Inbound Traffic': 'Tráfico entrante',\n  'involved project': 'proyecto involucrado',\n  Jobs: 'Jobs',\n  'KubeSphere Running Status': 'Estado de ejecución de Xcloud',\n  'Log Data': 'Datos de registro',\n  'Memory Usage': 'Uso de memoria',\n  'Memory Utilization': 'Utilización de memoria',\n  'Monitoring Data': 'Datos de monitorización',\n  'Network Bandwidth': 'Ancho de banda de red',\n  'Node Status': 'Estado del nodo',\n  'Outbound Traffic': 'Tráfico saliente',\n  'Platform Usage Status': 'Estado de uso de la plataforma',\n  'Project Top3': 'Proyecto Top3',\n  quota: 'cuota',\n  'Regular user': 'Usuario regular',\n  'Replica Availability': 'Disponibilidad de réplica',\n  Routes: 'Rutas',\n  Services: 'Services',\n  'Storage Classes': 'Storage Classes',\n  'Super administrator': 'Super administrador',\n  Utilization: 'Utilización',\n  'View All Nodes': 'Ver todos los nodos',\n  Volumes: 'Volúmenes',\n  DASHBOARD_BANNER_TITLE: 'Visión general de la plataforma',\n  DASHBOARD_BANNER_DESC: 'Estadísticas agregadas sobre los recursos en ejecución y el uso de la plataforma actual.',\n  DASHBOARD_DESC: 'El dashboard proporciona información sobre el uso de varios recursos en el clúster actual.',\n  NODE_UNIT: 'Nodos',\n  USAGE_VALUE: 'Uso',\n  USAGE_RATE: 'Uso',\n  NO_PROJECT: 'No se han encontrado proyectos disponibles.',\n  NO_POD_MONITOR_DATA: 'No hay datos de monitorización de pods',\n  CPU_AVERAGE_LOAD: 'Promedio de carga'\n};\n\n//# sourceURL=webpack:///./locales/es/dashboard.js?");
+
+/***/ })
+
+};
