@@ -13,7 +13,7 @@
                     <use xlink:href="#path-1"></use>
                 </mask>
                 <use id="Mask" fill="#F9FBFD" xlink:href="#path-1"></use>
-                <g id="Group-6" opacity="0.65" mask="url(#mask-2)" fill="#EFF4F9">
+                <g id="Group-6" opacity="0.65" mask="url(#mask-2)" fill="#0d6c2c12">
                     <g transform="translate(0.000000, -189.000000)">
                         <polygon id="Fill-1" points="314.731343 329.898495 223.597015 277.976804 223.597015 381.824742"></polygon>
                         <polygon id="Fill-3" points="178.029851 0 0 101.623518 0 305.385598 178.029851 407 178.029851 252.399709 92.3665853 203.502279 178.029851 154.604849"></polygon>

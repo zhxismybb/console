@@ -58,6 +58,6 @@
             </g>
         </g>
         <path fill="#D8DEE5" fill-rule="nonzero" d="M12 12H54V26H12z" mask="url(#prefix__b)"/>
-        <path fill="#EFF4F9" fill-rule="nonzero" d="M12 30H141V44H12z" mask="url(#prefix__b)"/>
+        <path fill="#0d6c2c12" fill-rule="nonzero" d="M12 30H141V44H12z" mask="url(#prefix__b)"/>
     </g>
 </svg>

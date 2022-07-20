@@ -74,7 +74,7 @@ export default function ChartCard({ click, item, type, filters }) {
             {
               name: 'Left',
               itemStyle: {
-                fill: '#EFF4F9',
+                fill: '#0d6c2c12',
               },
               value: total - used,
             },

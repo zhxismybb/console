@@ -139,7 +139,7 @@ class ScheduleInfo extends React.Component {
       {
         name: 'allocatable',
         itemStyle: {
-          fill: '#eff4f9',
+          fill: '#0d6c2c12',
         },
         value: allocatable,
       },
