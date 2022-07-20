@@ -31,7 +31,7 @@
       "json": ["locale-tr.59645bbc4c8f5bb748b1.json"]
     },
     "locale-zh": {
-      "json": ["locale-zh.46ea26369dd193f45077.json"]
+      "json": ["locale-zh.9e979fde03c1e5e78dfe.json"]
     }
   },
   "locale-ar.json": "locale-ar.8a1c09c96db369402f7d.json",
@@ -44,5 +44,5 @@
   "locale-pl.json": "locale-pl.e9b55aeba5a0f33d6ca5.json",
   "locale-tc.json": "locale-tc.b90bfb516b54303d3a98.json",
   "locale-tr.json": "locale-tr.59645bbc4c8f5bb748b1.json",
-  "locale-zh.json": "locale-zh.46ea26369dd193f45077.json"
+  "locale-zh.json": "locale-zh.9e979fde03c1e5e78dfe.json"
 }

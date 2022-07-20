@@ -7927,6 +7927,7 @@ pre {
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   height: 100%;
+  margin-top: -30px;
 }
 ._2XzvCEm6d6i5uRhiZjz5C9 {
   position: relative;
@@ -7936,6 +7937,10 @@ pre {
 ._3r9vxHt7hiWvi5JnCUq3cT {
   -ms-flex: 1 1;
   flex: 1 1;
+}
+._3r9vxHt7hiWvi5JnCUq3cT img {
+  width: 90%;
+  margin-left: 20%;
 }
 ._1_GMngPtJqDZLT09A3KSHJ {
   position: absolute;
