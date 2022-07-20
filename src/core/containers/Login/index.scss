@@ -6,6 +6,11 @@
   top: 80px;
   left: 50%;
   transform: translateX(-50%);
+  width: 180px;
+  height: 40px;
+  background-image: url('/assets/logo.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .logo img {
@@ -16,7 +21,7 @@
 .login {
   position: relative;
   width: 320px;
-  margin: 140px auto 40px;
+  margin: 0 auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 4px;
@@ -89,4 +94,21 @@
   & + form {
     padding-top: 20px;
   }
+}
+// 2022/07/19 页面整体布局变为左右结构
+.boxLayout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+  flex-wrap: nowrap;
+  padding-top: 140px;
+}
+.relativePos {
+  position: relative;
+  flex: 1;
+}
+.pageRight {
+  flex: 1;
 }
