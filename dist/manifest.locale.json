@@ -1,37 +1,59 @@
 {
   "entrypoints": {
     "locale-ar": {
-      "json": ["locale-ar.json"]
+      "json": [
+        "locale-ar.json"
+      ]
     },
     "locale-en": {
-      "json": ["locale-en.json"]
+      "json": [
+        "locale-en.json"
+      ]
     },
     "locale-es": {
-      "json": ["locale-es.json"]
+      "json": [
+        "locale-es.json"
+      ]
     },
     "locale-fr": {
-      "json": ["locale-fr.json"]
+      "json": [
+        "locale-fr.json"
+      ]
     },
     "locale-hi": {
-      "json": ["locale-hi.json"]
+      "json": [
+        "locale-hi.json"
+      ]
     },
     "locale-ko": {
-      "json": ["locale-ko.json"]
+      "json": [
+        "locale-ko.json"
+      ]
     },
     "locale-lt": {
-      "json": ["locale-lt.json"]
+      "json": [
+        "locale-lt.json"
+      ]
     },
     "locale-pl": {
-      "json": ["locale-pl.json"]
+      "json": [
+        "locale-pl.json"
+      ]
     },
     "locale-tc": {
-      "json": ["locale-tc.json"]
+      "json": [
+        "locale-tc.json"
+      ]
     },
     "locale-tr": {
-      "json": ["locale-tr.json"]
+      "json": [
+        "locale-tr.json"
+      ]
     },
     "locale-zh": {
-      "json": ["locale-zh.json"]
+      "json": [
+        "locale-zh.json"
+      ]
     }
   },
   "locale-ar.json": "locale-ar.json",

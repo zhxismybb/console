@@ -3,7 +3,8 @@
 .header {
   position: relative;
   height: $header-height;
-  background-color: $body-bg-color;
+  // background-color: $body-bg-color;
+  background-color: #ddece2;
 
   &.inAppsPage {
     background-color: rgba(24, 29, 40, 0.2);

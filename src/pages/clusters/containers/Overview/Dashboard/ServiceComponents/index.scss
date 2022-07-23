@@ -3,11 +3,24 @@
 .icons {
   :global {
     .icon {
-      background-color: $light-color01; 
+      background-color: $light-color01;
     }
   }
 
   span {
     margin-right: 8px;
   }
+}
+.iconImg {
+  width: 33.67px;
+  height: 33.67px;
+  position: absolute;
+  left: 0;
+  top: 17px;
+}
+.imgBox {
+  width: 36.67px;
+  height: 36.67px;
+  position: relative;
+  display: inline-block;
 }
