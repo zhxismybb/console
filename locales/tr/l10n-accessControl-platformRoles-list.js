@@ -1,28 +1,28 @@
 /*
- * This file is part of KubeSphere Console.
- * Copyright (C) 2019 The KubeSphere Console Authors.
+ * This file is part of Xcloud Console.
+ * Copyright (C) 2019 The Xcloud Console Authors.
  *
- * KubeSphere Console is free software: you can redistribute it and/or modify
+ * Xcloud Console is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * KubeSphere Console is distributed in the hope that it will be useful,
+ * Xcloud Console is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
+ * along with Xcloud Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 module.exports = {
   // Banner
   PLATFORM_ROLE_PL: 'Platform Rolleri',
   // List
   PLATFORM_ROLE_EMPTY_DESC: 'Lütfen bir platform rolü oluşturun.',
-  ROLE_USERS_MANAGER: 'KubeSphere platformundaki tüm kullanıcıları yönetin.',
-  ROLE_WORKSPACES_MANAGER: 'KubeSphere platformundaki tüm çalışma alanlarını yönetin.',
-  ROLE_PLATFORM_ADMIN: 'KubeSphere platformundaki tüm kaynakları yönetin.',
+  ROLE_USERS_MANAGER: 'Xcloud platformundaki tüm kullanıcıları yönetin.',
+  ROLE_WORKSPACES_MANAGER: 'Xcloud platformundaki tüm çalışma alanlarını yönetin.',
+  ROLE_PLATFORM_ADMIN: 'Xcloud platformundaki tüm kaynakları yönetin.',
   ROLE_PLATFORM_REGULAR: 'Bir çalışma alanına katılmadan önce hiçbir kaynağa erişilemez.',
   CREATION_TIME_TCAP: 'Oluşturma Zamanı',
   // List > Create
@@ -56,5 +56,5 @@ module.exports = {
   // List > Create > Edit Permissions > Platform Settings
   PERMIGROUP_PLATFORM_SETTINGS: 'Platform Ayarları',
   PERMISSION_PLATFORM_SETTINGS_MANAGEMENT: 'Platform Ayarları Yönetimi',
-  PERMISSION_PLATFORM_SETTINGS_MANAGEMENT_DESC: 'KubeSphere platformunun ayarlarını görüntüleyin ve düzenleyin.'
+  PERMISSION_PLATFORM_SETTINGS_MANAGEMENT_DESC: 'Xcloud platformunun ayarlarını görüntüleyin ve düzenleyin.'
 };
