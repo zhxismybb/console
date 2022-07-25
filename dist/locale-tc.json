@@ -950,7 +950,7 @@
   "PERMISSION_APP_TEMPLATES_MANAGEMENT_DESC": "Manage the platform App Store and life cycles of cloud-native applications.",
   "PERMIGROUP_PLATFORM_SETTINGS": "平台設置",
   "PERMISSION_PLATFORM_SETTINGS_MANAGEMENT": "Platform Settings Management",
-  "PERMISSION_PLATFORM_SETTINGS_MANAGEMENT_DESC": "View and edit settings of the KubeSphere platform.",
+  "PERMISSION_PLATFORM_SETTINGS_MANAGEMENT_DESC": "View and edit settings of the Xcloud platform.",
   "CONFIRM_PASSWORD_TIP": "請再次輸入新的密碼。",
   "CHANGE_PASSWORD": "修改密碼",
   "NEW_PASSWORD": "新的密碼",
