@@ -56,5 +56,5 @@ module.exports = {
   // List > Create > Edit Permissions > Platform Settings
   PERMIGROUP_PLATFORM_SETTINGS: '平台设置',
   PERMISSION_PLATFORM_SETTINGS_MANAGEMENT: '平台设置管理',
-  PERMISSION_PLATFORM_SETTINGS_MANAGEMENT_DESC: '查看和编辑 KubeSphere平台的设置。'
+  PERMISSION_PLATFORM_SETTINGS_MANAGEMENT_DESC: '查看和编辑 Xcloud平台的设置。'
 };

@@ -1,0 +1,15 @@
+exports.id = "locale-tr";
+exports.modules = {
+
+/***/ "./locales/tr/l10n-accessControl-users-list.js":
+/*!*****************************************************!*\
+  !*** ./locales/tr/l10n-accessControl-users-list.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("/*\n * This file is part of Xcloud Console.\n * Copyright (C) 2019 The Xcloud Console Authors.\n *\n * Xcloud Console is free software: you can redistribute it and/or modify\n * it under the terms of the GNU Affero General Public License as published by\n * the Free Software Foundation, either version 3 of the License, or\n * (at your option) any later version.\n *\n * Xcloud Console is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU Affero General Public License for more details.\n *\n * You should have received a copy of the GNU Affero General Public License\n * along with Xcloud Console.  If not, see <https://www.gnu.org/licenses/>.\n */\nmodule.exports = {\n  // Banner\n  USER_DESC: 'Kullanıcıları ve kullanıcı izinlerini yönetin.',\n  USER_PL: 'Kullanıcılar',\n  // List\n  NOT_LOGIN_YET: 'Henüz oturum açılmadı',\n  USER_EMPTY_DESC: 'Lütfen bir kullanıcı oluşturun.',\n  USER_ACTIVE: 'Aktif',\n  USER_AUTHLIMITEXCEEDED: 'Kısıtlı giriş',\n  USER_PENDING: 'Bekliyor',\n  USER_DISABLED: 'Devre Dışı',\n  LAST_LOGIN: 'Son Giriş',\n  // List > Create\n  USERNAME_DESC: 'Kullanıcı adı yalnızca küçük harf, sayı, tire (-) ve nokta (.) içerebilir ve mutlaka küçük harf ve sayı ile başlamalı ve bitmelidir. En fazla 32 karakter olabilir.',\n  PASSWORD_DESC: 'Parola en az bir sayı, bir küçük harf ve bir büyük harf içermelidir. Parola uzunluğu 8 ila 64 karakter arası olmalıdır.',\n  PASSWORD_INVALID_DESC: 'Geçersiz parola. Parola en az bir sayı, bir küçük harf ve bir büyük harf içermelidir. Parola uzunluğu 8 ila 64 karakter arası olmalıdır.',\n  PLATFORM_ROLE_DESC: ' Xcloud platformunda kullanıcının rolünü belirleyin.',\n  USER_SETTING_EMAIL_DESC: 'E-posta adresi, Xcloud web konsolunda oturum açmak için kullanılabilir.',\n  USERNAME_EXISTS: 'Kullanıcı adı zaten mevcut. Lütfen başka bir kullanıcı adı deneyin.',\n  USERNAME_EMPTY_DESC: 'Lütfen kullanıcı adınızı girin.',\n  PLATFORM_ROLE: 'Platform Rolleri',\n  CREATE_USER: 'Kullanıcı Oluştur',\n  EMAIL: 'E-Posta',\n  EMAIL_EXISTS: 'E-mail adresi zaten mevcut! Lütfen başka bir e-mail adresi deneyin!',\n  USERNAME_INVALID: 'Hatalı kullanıcı adı.',\n  USERNAME: 'Kullanıcı Adı',\n  PASSWORD: 'Parola',\n  // List > Edit\n  EDIT_USER: 'Kullanıcı Düzenle',\n  // List > Delete\n  USER_LOW: 'kullanıcı'\n};\n\n//# sourceURL=webpack:///./locales/tr/l10n-accessControl-users-list.js?");
+
+/***/ })
+
+};
