@@ -80,7 +80,7 @@ export default class ServiceComponents extends Component {
             .map(item => (
               <span key={item.type} data-tooltip={item.title}>
                 <Link to={`/clusters/${cluster}/components?type=${item.type}`}>
-                  {item.type === 'kubesphere' && (
+                  {/* {item.type === 'kubesphere' && (
                     <div className={styles.imgBox}>
                       <img
                         src="/assets/logo_icon.svg"
@@ -95,7 +95,12 @@ export default class ServiceComponents extends Component {
                       size={44}
                       clickable
                     />
-                  )}
+                  )} */}
+                  <Icon
+                    name={COMPONENT_ICON_MAP[item.type]}
+                    size={44}
+                    clickable
+                  />
                 </Link>
               </span>
             ))}
