@@ -1,3 +1,5 @@
+// @import '~scss/variables';
+@import '~scss/mixins';
 .info {
   display: flex;
 
@@ -9,4 +11,35 @@
 
 .status {
   padding: 0 0 12px 0;
+}
+.containerOut {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-start;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.columnWidth {
+  padding: 0 15px 10px;
+  width: 32%;
+}
+.PanelBox {
+  height: 278px;
+  overflow: auto;
+}
+.cardHeader {
+  font-family: $font-family-id;
+  font-size: 14px;
+  font-weight: 600;
+  color: $dark-color06;
+  padding: 10px 5px 5px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  @include ellipsis;
+  @include nowrap;
+  border-bottom: 1px solid $light-color02;
+}
+.resetShadow {
+  box-shadow: unset !important;
 }

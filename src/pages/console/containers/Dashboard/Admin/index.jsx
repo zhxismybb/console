@@ -20,7 +20,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { get } from 'lodash'
 import { Loading } from '@kube-design/components'
-import { Panel, Text } from 'components/Base'
+import { Panel, Text, Card } from 'components/Base'
 
 import PlatformMonitorStore from 'stores/monitoring/platform'
 
@@ -57,10 +57,50 @@ export default class AdminDashboard extends React.Component {
       this.monitorStore.data,
       `${MetricTypes.cluster_count}.data.result[0].value[1]`
     )
-    const version = get(globals, 'ksConfig.ksVersion', '')
     return (
       <Loading spinning={isLoading}>
-        <>
+        <div className={styles.containerOut}>
+          <Card className={styles.columnWidth}>
+            <div className={styles.cardHeader}>{t('PLATFORM_INFORMATION')}</div>
+            <div className={styles.PanelBox}>
+              <Panel className={(styles.info, styles.resetShadow)}>
+                {globals.app.isMultiCluster ? (
+                  <Text
+                    title={clusterCount}
+                    description={
+                      clusterCount === '1' ? t('CLUSTER') : t('CLUSTER_PL')
+                    }
+                    onClick={this.handleClusterClick}
+                  />
+                ) : (
+                  <Text
+                    title={1}
+                    description={t('CLUSTER')}
+                    onClick={this.handleClusterClick}
+                  />
+                )}
+              </Panel>
+            </div>
+          </Card>
+          <Card className={styles.columnWidth}>
+            <div className={styles.cardHeader}>{t('PLATFORM_RESOURCES')}</div>
+            <div className={styles.PanelBox}>
+              <Panel className={(styles.status, styles.resetShadow)}>
+                <PlatformStatus metrics={this.monitorStore.data} />
+              </Panel>
+            </div>
+          </Card>
+          <Card className={styles.columnWidth}>
+            <div className={styles.cardHeader}>{t('RECENT_ACCESS')}</div>
+
+            <div className={styles.PanelBox}>
+              <Panel className={styles.resetShadow}>
+                <History />
+              </Panel>
+            </div>
+          </Card>
+        </div>
+        {/* <>
           <Panel className={styles.info} title={t('PLATFORM_INFORMATION')}>
             <Text
               title={version.replace('v', '')}
@@ -88,7 +128,7 @@ export default class AdminDashboard extends React.Component {
           <Panel title={t('RECENT_ACCESS')}>
             <History />
           </Panel>
-        </>
+        </> */}
       </Loading>
     )
   }

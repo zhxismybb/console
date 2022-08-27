@@ -87,7 +87,7 @@
   height: 60px;
   padding: 12px;
   border-radius: 4px 0 0 0;
-  border-bottom: solid 1px $light-color03;
+  border-bottom: solid 1px $light-color02;
   background-color: $bg-color;
   font-family: $font-family-id;
   font-size: $size-normal;
@@ -99,7 +99,7 @@
 .rightPane {
   height: calc(100vh - 168px);
   border-radius: 4px 0 0 4px;
-  border: solid 1px $light-color03;
+  border: solid 1px $light-color02;
   background-color: #fff;
 }
 
@@ -112,7 +112,7 @@
   height: 60px;
   background-color: #ffffff;
   border-radius: 0 4px 0 0;
-  border-bottom: solid 1px $light-color03;
+  border-bottom: solid 1px $light-color02;
 }
 
 .listPane {
@@ -133,7 +133,7 @@
   height: 50%;
   padding: 8px;
   border-radius: 0 0 4px 4px;
-  border: solid 1px $light-color03;
+  border: solid 1px $light-color02;
   background-color: #ffffff;
   z-index: 10;
 
@@ -156,7 +156,7 @@
   & > line {
     pointer-events: none;
     stroke-width: 1px;
-    stroke: $light-color03;
+    stroke: $light-color02;
 
     &:first-child,
     &:last-child {

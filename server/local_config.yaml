@@ -1,7 +1,7 @@
 server:
   http:
     hostname: localhost
-    port: 8000
+    port: 7000
     static:
       production:
         /public: server/public
