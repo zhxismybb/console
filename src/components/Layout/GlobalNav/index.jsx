@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /*
  * This file is part of KubeSphere Console.
  * Copyright (C) 2019 The KubeSphere Console Authors.
@@ -16,41 +17,43 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import { get } from 'lodash'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { get } from 'lodash';
 
-import { Icon } from '@kube-design/components'
-import { Modal } from 'components/Base'
+import { Icon } from '@kube-design/components';
+import { Modal } from 'components/Base';
 
-import NavItem from './item'
+import NavItem from './item';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 class GlobalNav extends React.Component {
   static propTypes = {
     navs: PropTypes.array.isRequired,
     visible: PropTypes.bool,
     onCancel: PropTypes.func,
-  }
+  };
 
   static defaultProps = {
     navs: [],
     visible: false,
     onCancel() {},
-  }
+  };
 
   state = {
     hoverNav: get(this.props, 'navs[0].name', ''),
-  }
+  };
 
   handleHover = e => {
-    this.setState({ hoverNav: e.currentTarget.dataset.name })
-  }
+    this.setState({ hoverNav: e.currentTarget.dataset.name });
+  };
 
   render() {
-    const { visible, navs, onCancel } = this.props
-    const { hoverNav } = this.state
+    const { visible, navs, onCancel } = this.props;
+    // 移除应用商店管理
+    const navList = navs.filter(item => item.name !== 'apps-manage');
+    const { hoverNav } = this.state;
 
     return (
       <Modal
@@ -64,7 +67,7 @@ class GlobalNav extends React.Component {
       >
         <div>
           <div className={styles.navs} onClick={onCancel}>
-            {navs.map(nav => (
+            {navList.map(nav => (
               <NavItem
                 key={nav.name}
                 data={nav}
@@ -83,8 +86,8 @@ class GlobalNav extends React.Component {
           />
         </div>
       </Modal>
-    )
+    );
   }
 }
 
-export default GlobalNav
+export default GlobalNav;

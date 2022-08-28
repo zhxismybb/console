@@ -16,38 +16,38 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classnames from 'classnames'
-import { Link } from 'react-router-dom'
-import { Button, Icon, Menu, Dropdown } from '@kube-design/components'
-import { isAppsPage, getWebsiteUrl } from 'utils'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import { Link } from 'react-router-dom';
+import { Button, Icon, Menu } from '@kube-design/components';
+import { isAppsPage, getWebsiteUrl } from 'utils';
 
-import LoginInfo from '../LoginInfo'
+import LoginInfo from '../LoginInfo';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 class Header extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     innerRef: PropTypes.object,
     jumpTo: PropTypes.func,
-  }
+  };
 
   get isLoggedIn() {
-    return Boolean(globals.user)
+    return Boolean(globals.user);
   }
 
   handleLinkClick = link => () => {
-    this.props.jumpTo(link)
-  }
+    this.props.jumpTo(link);
+  };
 
   handleDocumentLinkClick = (e, key) => {
-    window.open(key)
-  }
+    window.open(key);
+  };
 
   renderDocumentList() {
-    const { url, api } = getWebsiteUrl()
+    const { url, api } = getWebsiteUrl();
     return (
       <Menu onClick={this.handleDocumentLinkClick} data-test="header-docs">
         <Menu.MenuItem key={url}>
@@ -57,12 +57,12 @@ class Header extends React.Component {
           <Icon name="api" /> {t('API Documents')}
         </Menu.MenuItem>
       </Menu>
-    )
+    );
   }
 
   render() {
-    const { className, innerRef, location } = this.props
-    const logo = globals.config.logo || '/assets/logo.png'
+    const { className, innerRef, location } = this.props;
+    const logo = globals.config.logo || '/assets/logo.png';
 
     return (
       <div
@@ -85,50 +85,37 @@ class Header extends React.Component {
         <div className="header-bottom" />
         {this.isLoggedIn && (
           <div className={styles.navs}>
+            <Button
+              type="flat"
+              icon="dashboard"
+              onClick={this.handleLinkClick('/')}
+              className={
+                (classnames({
+                  [styles.active]: location.pathname === '/',
+                }),
+                styles.navBtn)
+              }
+            >
+              {t('Workbench')}
+            </Button>
             {globals.app.enableGlobalNav && (
               <Button
                 type="flat"
                 icon="cogwheel"
                 onClick={this.props.onToggleNav}
+                className={styles.navBtn}
               >
                 {t('Platform')}
               </Button>
             )}
-            {globals.app.enableAppStore && (
-              <Button
-                type="flat"
-                icon="appcenter"
-                onClick={this.handleLinkClick('/apps')}
-                className={classnames({
-                  [styles.active]: location.pathname === '/apps',
-                })}
-              >
-                {t('APP_STORE')}
-              </Button>
-            )}
-            <Button
-              type="flat"
-              icon="dashboard"
-              onClick={this.handleLinkClick('/')}
-              className={classnames({
-                [styles.active]: location.pathname === '/',
-              })}
-            >
-              {t('Workbench')}
-            </Button>
           </div>
         )}
         <div className={styles.right}>
-          {this.isLoggedIn && (
-            <Dropdown content={this.renderDocumentList()}>
-              <Button type="flat" icon="documentation" />
-            </Dropdown>
-          )}
           <LoginInfo className={styles.loginInfo} isAppsPage={isAppsPage()} />
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Header
+export default Header;

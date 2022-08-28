@@ -16,18 +16,18 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { inject, observer } from 'mobx-react'
-import classnames from 'classnames'
-import { Dropdown, Menu, Icon } from '@kube-design/components'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { inject, observer } from 'mobx-react';
+import classnames from 'classnames';
+import { Dropdown, Menu, Icon } from '@kube-design/components';
 
-import AboutModal from 'components/Modals/About'
-import { trigger } from 'utils/action'
+import AboutModal from 'components/Modals/About';
+import { trigger } from 'utils/action';
 
-import UserStore from 'stores/user'
+import UserStore from 'stores/user';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 @inject('rootStore')
 @observer
@@ -35,36 +35,36 @@ import styles from './index.scss'
 export default class LoginInfo extends Component {
   static propTypes = {
     isAppsPage: PropTypes.bool,
-  }
+  };
 
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.store = new UserStore()
+    this.store = new UserStore();
     this.state = {
       showAbout: false,
-    }
+    };
   }
 
   handleMoreClick = (e, key) => {
     switch (key) {
       case 'setting':
-        this.trigger('user.setting', {})
-        break
+        this.trigger('user.setting', {});
+        break;
       case 'about':
-        this.setState({ showAbout: true })
-        break
+        this.setState({ showAbout: true });
+        break;
       case 'logout':
-        this.props.rootStore.logout()
-        break
+        this.props.rootStore.logout();
+        break;
       default:
-        break
+        break;
     }
-  }
+  };
 
   hideAboutModal = () => {
-    this.setState({ showAbout: false })
-  }
+    this.setState({ showAbout: false });
+  };
 
   renderDropDown() {
     return (
@@ -75,11 +75,8 @@ export default class LoginInfo extends Component {
         <Menu.MenuItem key="logout">
           <Icon name="logout" /> {t('LOG_OUT')}
         </Menu.MenuItem>
-        <Menu.MenuItem key="about">
-          <Icon name="information" /> {t('ABOUT')}
-        </Menu.MenuItem>
       </Menu>
-    )
+    );
   }
 
   renderModals() {
@@ -90,11 +87,11 @@ export default class LoginInfo extends Component {
           onCancel={this.hideAboutModal}
         />
       </div>
-    )
+    );
   }
 
   render() {
-    const { className, isAppsPage } = this.props
+    const { className, isAppsPage } = this.props;
 
     if (!globals.user) {
       return (
@@ -115,7 +112,7 @@ export default class LoginInfo extends Component {
             </a>
           </div>
         </div>
-      )
+      );
     }
 
     return (
@@ -133,6 +130,6 @@ export default class LoginInfo extends Component {
         </Dropdown>
         {this.renderModals()}
       </div>
-    )
+    );
   }
 }

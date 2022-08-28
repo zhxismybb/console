@@ -72,7 +72,9 @@
     }
   }
 }
-
+.navBtn:hover {
+  background-color: $light-color02 !important;
+}
 .right {
   position: absolute;
   top: 50%;
