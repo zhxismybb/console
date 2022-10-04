@@ -15,7 +15,6 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
-
 import React, { Component } from 'react';
 import { Panel, Text } from 'components/Base';
 import Banner from 'components/Cards/Banner';
