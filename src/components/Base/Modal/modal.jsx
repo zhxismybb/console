@@ -16,18 +16,18 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { get, omit, isUndefined, isFunction } from 'lodash'
-import React from 'react'
-import ReactDOM from 'react-dom'
-import ReactModal from 'react-modal'
-import { observer } from 'mobx-react'
-import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import { get, omit, isUndefined, isFunction } from 'lodash';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactModal from 'react-modal';
+import { observer } from 'mobx-react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
-import { Button, Icon } from '@kube-design/components'
-import { Image, Text } from 'components/Base'
+import { Button, Icon } from '@kube-design/components';
+import { Image, Text } from 'components/Base';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 ReactModal.defaultStyles.overlay = {
   ...ReactModal.defaultStyles.overlay,
@@ -36,7 +36,7 @@ ReactModal.defaultStyles.overlay = {
   backgroundColor: 'rgba(35, 45, 65, 0.7)',
   zIndex: 2000,
   overflow: 'auto',
-}
+};
 
 ReactModal.defaultStyles.content = {
   ...omit(ReactModal.defaultStyles.content, [
@@ -49,7 +49,7 @@ ReactModal.defaultStyles.content = {
   width: 744,
   position: 'relative',
   margin: '0 auto',
-}
+};
 
 export default class Modal extends React.Component {
   static propTypes = {
@@ -77,7 +77,7 @@ export default class Modal extends React.Component {
     fullScreen: PropTypes.bool,
     rightScreen: PropTypes.bool,
     disableSubmit: PropTypes.bool,
-  }
+  };
 
   static defaultProps = {
     className: '',
@@ -93,21 +93,21 @@ export default class Modal extends React.Component {
     okButtonType: 'control',
     cancelButtonType: 'default',
     disableSubmit: false,
-  }
+  };
 
   static open = options => {
-    const modalWrapper = document.createElement('div')
-    document.body.appendChild(modalWrapper)
-    document.activeElement.blur()
+    const modalWrapper = document.createElement('div');
+    document.body.appendChild(modalWrapper);
+    document.activeElement.blur();
 
     const wrapCancel = () => {
       if (isFunction(options.onCancel)) {
-        options.onCancel()
+        options.onCancel();
       }
-      Modal.close(modalWrapper)
-    }
+      Modal.close(modalWrapper);
+    };
 
-    const Component = options.modal
+    const Component = options.modal;
     const WrappedComponent = observer(() => (
       <Component
         {...omit(options, 'modal', 'onCancel')}
@@ -115,22 +115,22 @@ export default class Modal extends React.Component {
         onCancel={wrapCancel}
         visible
       />
-    ))
-    ReactDOM.render(<WrappedComponent />, modalWrapper)
+    ));
+    ReactDOM.render(<WrappedComponent />, modalWrapper);
 
-    return modalWrapper
-  }
+    return modalWrapper;
+  };
 
   static close = modal => {
-    const unmounted = ReactDOM.unmountComponentAtNode(modal)
+    const unmounted = ReactDOM.unmountComponentAtNode(modal);
     if (unmounted && modal.parentNode) {
-      modal.parentNode.removeChild(modal)
+      modal.parentNode.removeChild(modal);
     }
-  }
+  };
 
   renderTitle() {
-    const { icon, imageIcon, title, description, rightScreen } = this.props
-    const size = rightScreen ? 48 : isUndefined(description) ? 20 : 40
+    const { icon, imageIcon, title, description, rightScreen } = this.props;
+    const size = rightScreen ? 48 : isUndefined(description) ? 20 : 40;
 
     return (
       <div className={styles.title}>
@@ -143,7 +143,7 @@ export default class Modal extends React.Component {
         )}
         <Text title={title} description={description} />
       </div>
-    )
+    );
   }
 
   render() {
@@ -173,16 +173,16 @@ export default class Modal extends React.Component {
       imageIcon,
       disableSubmit,
       ...rest
-    } = this.props
+    } = this.props;
 
     const style = {
       content: {},
-    }
+    };
 
-    const showIcon = (icon || imageIcon) && rightScreen
+    const showIcon = (icon || imageIcon) && rightScreen;
 
     if (!fullScreen && !rightScreen) {
-      style.content.width = width
+      style.content.width = width;
     }
 
     return (
@@ -220,7 +220,7 @@ export default class Modal extends React.Component {
               <Button
                 className={styles.close}
                 icon="close"
-                iconType="light"
+                iconType="dark"
                 type="control"
                 onClick={onCancel}
                 data-test="modal-close"
@@ -254,6 +254,6 @@ export default class Modal extends React.Component {
           </div>
         )}
       </ReactModal>
-    )
+    );
   }
 }

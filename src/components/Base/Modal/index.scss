@@ -105,10 +105,14 @@
     cursor: pointer;
     border-radius: 4px;
     padding: 3px !important;
+    background-color: unset;
+    box-shadow: none;
+    border: unset;
     :global {
       .icon {
         width: 24px;
         height: 24px;
+        color: #333;
       }
     }
   }

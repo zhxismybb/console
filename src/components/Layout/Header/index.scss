@@ -4,7 +4,7 @@
   position: relative;
   height: $header-height;
   // background-color: $body-bg-color;
-  background-color: #ddece2;
+  background-color: $theme-color;
 
   &.inAppsPage {
     background-color: rgba(24, 29, 40, 0.2);
@@ -73,7 +73,7 @@
   }
 }
 .navBtn:hover {
-  background-color: $light-color02 !important;
+  background-color: $theme-light-color !important;
 }
 .right {
   position: absolute;
@@ -88,4 +88,21 @@
 
 .loginInfo {
   margin-left: 33px;
+}
+.title {
+  font-size: 14px;
+  color: $dark-color06;
+  text-shadow: 0 4px 8px rgba(36, 46, 66, 0.1);
+}
+
+.desc {
+  color: $dark-color01;
+  margin-bottom: 12px;
+}
+.navElem {
+  display: flex;
+  color: $white;
+  .navGap {
+    padding-left: 12px;
+  }
 }

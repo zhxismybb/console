@@ -4,6 +4,11 @@
 $trans-speed: 0.2s;
 
 .subNav {
+  height: 100%;
+  background: $white;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px 0 rgba(36, 46, 66, 0.2);
+
   & > p {
     color: #79879c;
     margin-bottom: 12px;
@@ -11,7 +16,7 @@ $trans-speed: 0.2s;
 
   & > ul {
     margin-bottom: 20px;
-
+    background: $white;
     & > li {
       border-radius: 18px;
       border: solid 1px transparent;
@@ -48,8 +53,8 @@ $trans-speed: 0.2s;
           color: $primary;
 
           :global .kubed-icon {
-            color: #00aa72;
-            fill: #90e0c5;
+            color: $theme-color;
+            fill: $theme-light-color;
           }
         }
 
@@ -72,8 +77,8 @@ $trans-speed: 0.2s;
       &.childSelect .title {
         color: $primary;
         :global .kubed-icon {
-          color: #00aa72;
-          fill: #90e0c5;
+          color: $theme-color;
+          fill: $theme-light-color;
         }
       }
 

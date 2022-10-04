@@ -20,7 +20,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import { Button, Icon, Menu } from '@kube-design/components';
+import { Button, Icon, Menu, Dropdown } from '@kube-design/components';
 import { isAppsPage, getWebsiteUrl } from 'utils';
 
 import LoginInfo from '../LoginInfo';
@@ -38,9 +38,32 @@ class Header extends React.Component {
     return Boolean(globals.user);
   }
 
-  handleLinkClick = link => () => {
-    this.props.jumpTo(link);
-  };
+  renderDropDown() {
+    const navList = globals.app.getGlobalNavs();
+    // eslint-disable-next-line no-console
+    // console.log('%c=====', 'font-size: 35px', navList);
+    return (
+      <Menu onClick={this.handleMoreClick}>
+        {navList.map(nav => (
+          <Menu.MenuItem key={nav.name}>
+            <Link to={`/${nav.name}`} data-name={nav.name}>
+              <div className={styles.title}>
+                <Icon name={nav.icon} size={14} type="dark" />
+
+                {t(nav.title)}
+              </div>
+              <div className={styles.desc}>
+                {t(
+                  nav.desc ||
+                    `${nav.title.replace(/\s/g, '_').toUpperCase()}_DESC`
+                )}
+              </div>
+            </Link>
+          </Menu.MenuItem>
+        ))}
+      </Menu>
+    );
+  }
 
   handleDocumentLinkClick = (e, key) => {
     window.open(key);
@@ -62,7 +85,7 @@ class Header extends React.Component {
 
   render() {
     const { className, innerRef, location } = this.props;
-    const logo = globals.config.logo || '/assets/logo.png';
+    // const logo = globals.config.logo || '/assets/images/logo4.svg';
 
     return (
       <div
@@ -76,19 +99,17 @@ class Header extends React.Component {
         )}
       >
         <Link to={isAppsPage() && !globals.user ? '/apps' : '/'}>
-          <img
+          {/* <img
             className={styles.logo}
             src={isAppsPage() ? `/assets/login-logo.png` : logo}
             alt=""
-          />
+          /> */}
         </Link>
         <div className="header-bottom" />
         {this.isLoggedIn && (
           <div className={styles.navs}>
             <Button
               type="flat"
-              icon="dashboard"
-              onClick={this.handleLinkClick('/')}
               className={
                 (classnames({
                   [styles.active]: location.pathname === '/',
@@ -96,17 +117,24 @@ class Header extends React.Component {
                 styles.navBtn)
               }
             >
-              {t('Workbench')}
+              <div className={styles.navElem}>
+                <Icon name="dashboard" type="light" />
+                <span className={styles.navGap}>{t('Workbench')}</span>
+              </div>
             </Button>
             {globals.app.enableGlobalNav && (
-              <Button
-                type="flat"
-                icon="cogwheel"
-                onClick={this.props.onToggleNav}
-                className={styles.navBtn}
-              >
-                {t('Platform')}
-              </Button>
+              <Dropdown content={this.renderDropDown()} placement="bottomLeft">
+                <Button
+                  type="flat"
+                  onClick={this.props.onToggleNav}
+                  className={styles.navBtn}
+                >
+                  <div className={styles.navElem}>
+                    <Icon name="cogwheel" type="light" />
+                    <span className={styles.navGap}>{t('Platform')}</span>
+                  </div>
+                </Button>
+              </Dropdown>
             )}
           </div>
         )}

@@ -16,47 +16,47 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import { inject, observer } from 'mobx-react'
-import { get } from 'lodash'
-import { Loading } from '@kube-design/components'
-import { Panel, Text, Card } from 'components/Base'
+import React from 'react';
+import { inject, observer } from 'mobx-react';
+import { get } from 'lodash';
+import { Loading } from '@kube-design/components';
+import { Panel, Text, Card } from 'components/Base';
 
-import PlatformMonitorStore from 'stores/monitoring/platform'
+import PlatformMonitorStore from 'stores/monitoring/platform';
 
-import PlatformStatus from './PlatformStatus'
-import History from './History'
+import PlatformStatus from './PlatformStatus';
+import History from './History';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 const MetricTypes = {
   cluster_count: 'kubesphere_cluser_count',
   workspace_count: 'kubesphere_workspace_count',
   account_count: 'kubesphere_user_count',
   app_template_count: 'kubesphere_app_template_count',
-}
+};
 
 @inject('rootStore')
 @observer
 export default class AdminDashboard extends React.Component {
-  monitorStore = new PlatformMonitorStore()
+  monitorStore = new PlatformMonitorStore();
 
   componentDidMount() {
     this.monitorStore.fetchMetrics({
       metrics: Object.values(MetricTypes),
-    })
+    });
   }
 
   handleClusterClick = () => {
-    this.props.rootStore.routing.push('/clusters')
-  }
+    this.props.rootStore.routing.push('/clusters');
+  };
 
   render() {
-    const { isLoading } = this.monitorStore
+    const { isLoading } = this.monitorStore;
     const clusterCount = get(
       this.monitorStore.data,
       `${MetricTypes.cluster_count}.data.result[0].value[1]`
-    )
+    );
     return (
       <Loading spinning={isLoading}>
         <div className={styles.containerOut}>
@@ -130,6 +130,6 @@ export default class AdminDashboard extends React.Component {
           </Panel>
         </> */}
       </Loading>
-    )
+    );
   }
 }

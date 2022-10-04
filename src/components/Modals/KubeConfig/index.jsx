@@ -16,36 +16,36 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import { observer } from 'mobx-react'
-import classnames from 'classnames'
+import React from 'react';
+import { observer } from 'mobx-react';
+import classnames from 'classnames';
 
-import { saveAs } from 'file-saver'
-import fullScreen from 'components/Modals/FullscreenModal'
-import UserTip from 'components/Cards/Tips'
-import { Icon } from '@kube-design/components'
-import { CodeEditor } from 'components/Base'
-import { get } from 'lodash'
-import TerminalStore from 'stores/terminal'
+import { saveAs } from 'file-saver';
+import fullScreen from 'components/Modals/FullscreenModal';
+import UserTip from 'components/Cards/Tips';
+import { Icon } from '@kube-design/components';
+import { CodeEditor } from 'components/Base';
+import { get } from 'lodash';
+import TerminalStore from 'stores/terminal';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 @fullScreen
 @observer
 export default class KubeConfigModal extends React.Component {
-  store = new TerminalStore()
+  store = new TerminalStore();
 
   componentDidMount() {
-    const params = get(this.props, 'match.params', {})
-    this.store.fetchKubeConfig(params)
+    const params = get(this.props, 'match.params', {});
+    this.store.fetchKubeConfig(params);
   }
 
   handleDownload = () => {
-    const text = this.store.kubeconfig
-    const fileName = 'kubeconfig.yaml'
-    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' })
-    saveAs(blob, fileName)
-  }
+    const text = this.store.kubeconfig;
+    const fileName = 'kubeconfig.yaml';
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    saveAs(blob, fileName);
+  };
 
   render() {
     return (
@@ -56,11 +56,11 @@ export default class KubeConfigModal extends React.Component {
         tips={this.renderTips()}
         onToggle={this.onTipsToggle}
       />
-    )
+    );
   }
 
   renderConfig() {
-    const options = { readOnly: true }
+    const options = { readOnly: true };
     return (
       <div className={classnames(styles.pane, styles.terminal)}>
         <div className={styles.download} onClick={this.handleDownload}>
@@ -69,7 +69,7 @@ export default class KubeConfigModal extends React.Component {
         </div>
         <CodeEditor value={this.store.kubeconfig} options={options} />
       </div>
-    )
+    );
   }
 
   renderTips() {
@@ -77,6 +77,6 @@ export default class KubeConfigModal extends React.Component {
       <div className={classnames('markdown-body', styles.tipWrapper)}>
         {t.html('KUBECONFIG_TIP')}
       </div>
-    )
+    );
   }
 }

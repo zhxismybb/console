@@ -16,19 +16,19 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import classnames from 'classnames'
-import { Button, Form } from '@kube-design/components'
-import Modal from './modal'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import { Button, Form } from '@kube-design/components';
+import Modal from './modal';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 export default class ModalForm extends React.Component {
   static propTypes = {
     data: PropTypes.object,
     isSubmitting: PropTypes.bool,
-  }
+  };
 
   render() {
     const {
@@ -45,7 +45,7 @@ export default class ModalForm extends React.Component {
       formClassName,
       disableOk,
       ...rest
-    } = this.props
+    } = this.props;
 
     return (
       <Modal
@@ -80,6 +80,6 @@ export default class ModalForm extends React.Component {
           )}
         </Form>
       </Modal>
-    )
+    );
   }
 }

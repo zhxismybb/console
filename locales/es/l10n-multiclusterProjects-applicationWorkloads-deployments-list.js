@@ -43,7 +43,7 @@ module.exports = {
   ADD_CONTAINER_DESC: 'KubeSphere admite la extracción de imágenes de los Registros de imágenes y la creación de nuevas imágenes a través del código fuente (Fuente a imagen).',
   CONTAINERS: 'Imagen de contenedor',
   IMAGE_TIME_SIZE_LAYER: 'Updated {time}',
-  IMAGE_DESC: 'Para implementar desde un repositorio de imágenes privado, primero debe <a href={link} target="_blank">crear un secreto de registro de imágenes</a> y luego extraer la imagen.',
+  IMAGE_DESC: 'Para implementar desde un repositorio de imágenes privado, primero debe y luego extraer la imagen.',
   IMAGE_PLACEHOLDER: 'Selecciona el registro de la lista desplegable o introduce una dirección de registro público',
   IMAGE_EMPTY: 'Please set an image.',
   ENTER_POSITIVE_INTEGER_DESC: 'La entrada de copia es ilegal',

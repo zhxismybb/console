@@ -16,20 +16,20 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { Component } from 'react'
-import { inject, observer } from 'mobx-react'
-import { Icon } from '@kube-design/components'
+import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
+import { Icon } from '@kube-design/components';
 
-import { renderRoutes } from 'utils/router.config'
-import { Nav } from 'components/Layout'
+import { renderRoutes } from 'utils/router.config';
+import { Nav } from 'components/Layout';
 
-import styles from './layout.scss'
+import styles from './layout.scss';
 
 @inject('rootStore')
 @observer
 export default class AppsLayout extends Component {
   render() {
-    const { match, route, location } = this.props
+    const { match, route, location } = this.props;
 
     return (
       <div className="ks-page-body">
@@ -51,6 +51,6 @@ export default class AppsLayout extends Component {
         </div>
         <div className="ks-page-main">{renderRoutes(route.routes)}</div>
       </div>
-    )
+    );
   }
 }

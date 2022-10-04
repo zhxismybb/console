@@ -16,20 +16,20 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import { isEmpty } from 'lodash'
-import { Icon } from '@kube-design/components'
-import classnames from 'classnames'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { isEmpty } from 'lodash';
+import { Icon } from '@kube-design/components';
+import classnames from 'classnames';
 
-import { getDocsUrl } from 'utils'
-import { ICON_TYPES } from 'utils/constants'
+// import { getDocsUrl } from 'utils';
+import { ICON_TYPES } from 'utils/constants';
 
-import Tip from './Tip'
-import Navs from './Navs'
-import Tabs from './Tabs'
+import Tip from './Tip';
+import Navs from './Navs';
+import Tabs from './Tabs';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 export default class Banner extends React.Component {
   static propTypes = {
@@ -42,28 +42,28 @@ export default class Banner extends React.Component {
     routes: PropTypes.array,
     tabs: PropTypes.object,
     extra: PropTypes.node,
-  }
+  };
 
   static defaultProps = {
     tips: [],
     tabs: {},
     routes: [],
-  }
+  };
 
   state = {
     openTip: '',
-  }
+  };
 
   handleToggle = title => {
     this.setState(({ openTip }) => ({
       openTip: openTip === title ? '' : title,
-    }))
-  }
+    }));
+  };
 
   get hiddenTips() {
     return (
       localStorage.getItem(`${globals.user.username}-banner-tips`) || ''
-    ).split(',')
+    ).split(',');
   }
 
   handleClose = key => {
@@ -71,11 +71,11 @@ export default class Banner extends React.Component {
       localStorage.setItem(
         `${globals.user.username}-banner-tips`,
         [...this.hiddenTips, key].join(',')
-      )
+      );
 
-      this.forceUpdate()
+      this.forceUpdate();
     }
-  }
+  };
 
   renderTips(tips) {
     return (
@@ -92,7 +92,7 @@ export default class Banner extends React.Component {
             />
           ))}
       </div>
-    )
+    );
   }
 
   render() {
@@ -106,8 +106,8 @@ export default class Banner extends React.Component {
       tabs,
       extra,
       routes,
-    } = this.props
-    const docUrl = getDocsUrl(module)
+    } = this.props;
+    // const docUrl = getDocsUrl(module);
 
     return (
       <div className={classnames(styles.wrapper, className)}>
@@ -119,14 +119,14 @@ export default class Banner extends React.Component {
             <div className="h3">{title}</div>
             <p className="text-second">
               {description}
-              {docUrl && (
+              {/* {docUrl && (
                 <span className={styles.more}>
                   <Icon name="documentation" size={20} />
                   <a href={docUrl} target="_blank" rel="noreferrer noopener">
                     {t('LEARN_MORE')}
                   </a>
                 </span>
-              )}
+              )} */}
             </p>
           </div>
         </div>
@@ -135,6 +135,6 @@ export default class Banner extends React.Component {
         {extra}
         {!isEmpty(tips) && this.renderTips(tips)}
       </div>
-    )
+    );
   }
 }

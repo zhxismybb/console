@@ -16,145 +16,145 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { get, set, throttle, isObject, isEmpty } from 'lodash'
-import classnames from 'classnames'
-import moment from 'moment-mini'
-import { Form, Button, Icon, Loading, Tooltip } from '@kube-design/components'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { get, set, throttle, isObject, isEmpty } from 'lodash';
+import classnames from 'classnames';
+import moment from 'moment-mini';
+import { Form, Button, Icon, Loading, Tooltip } from '@kube-design/components';
 
-import { getDocsUrl } from 'utils'
+import { getDocsUrl } from 'utils';
 
-import { PATTERN_IMAGE, PATTERN_IMAGE_TAG } from 'utils/constants'
+import { PATTERN_IMAGE, PATTERN_IMAGE_TAG } from 'utils/constants';
 
-import ContainerStore from 'stores/container'
+import ContainerStore from 'stores/container';
 
-import DropdownContent from './DropdownContent'
+import DropdownContent from './DropdownContent';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 export default class ImageSearch extends Component {
   constructor(props) {
-    super(props)
-    this.store = new ContainerStore()
-    this.getImageDetail = throttle(this.getImageDetail, 1000)
+    super(props);
+    this.store = new ContainerStore();
+    this.getImageDetail = throttle(this.getImageDetail, 1000);
 
     this.state = {
       isLoading: false,
       showPortsTips: false,
-    }
+    };
   }
 
   static defaultProps = {
     className: '',
     type: 'add',
-  }
+  };
 
   static contextTypes = {
     forceUpdate: PropTypes.func,
-  }
+  };
 
   get selectedImage() {
-    const { formTemplate } = this.props
-    const image = get(formTemplate, 'image', '')
+    const { formTemplate } = this.props;
+    const image = get(formTemplate, 'image', '');
 
-    return get(globals.cache, `[${image}]`)
+    return get(globals.cache, `[${image}]`);
   }
 
   get tag() {
-    const imageName = get(this.props.formTemplate, 'image', '')
-    const result = PATTERN_IMAGE_TAG.exec(imageName)
-    return get(result, `[${result.length - 1}]`, ':latest').slice(1)
+    const imageName = get(this.props.formTemplate, 'image', '');
+    const result = PATTERN_IMAGE_TAG.exec(imageName);
+    return get(result, `[${result.length - 1}]`, ':latest').slice(1);
   }
 
   componentDidMount() {
-    const { formTemplate } = this.props
+    const { formTemplate } = this.props;
 
-    const image = get(formTemplate, 'image', '')
+    const image = get(formTemplate, 'image', '');
     if (!this.selectedImage && image) {
-      const secret = get(formTemplate, 'pullSecret')
-      this.getImageDetail({ image, secret })
+      const secret = get(formTemplate, 'pullSecret');
+      this.getImageDetail({ image, secret });
     }
   }
 
   componentWillUnmount() {
-    this.isUnMounted = true
+    this.isUnMounted = true;
   }
 
   handleEnter = params => {
     if (!globals.config.enableImageSearch) {
-      return
+      return;
     }
-    const { logo = '', short_description = '' } = params || {}
-    const { formTemplate } = this.props
+    const { logo = '', short_description = '' } = params || {};
+    const { formTemplate } = this.props;
 
-    const secret = get(formTemplate, 'pullSecret')
-    const image = get(formTemplate, 'image', '')
+    const secret = get(formTemplate, 'pullSecret');
+    const image = get(formTemplate, 'image', '');
 
     if (this.image && image === this.image) {
-      this.image = undefined
-      return
+      this.image = undefined;
+      return;
     }
 
-    this.ImageDetail = { image, secret, logo, short_description }
-    this.getImageDetail(this.ImageDetail)
-  }
+    this.ImageDetail = { image, secret, logo, short_description };
+    this.getImageDetail(this.ImageDetail);
+  };
 
   getImageDetailNoCert = () => {
-    this.getImageDetail({ ...this.ImageDetail, insecure: true })
-  }
+    this.getImageDetail({ ...this.ImageDetail, insecure: true });
+  };
 
   getImageDetail = async ({ image, secret, insecure, ...rest }) => {
-    const { namespace, imageRegistries } = this.props
+    const { namespace, imageRegistries } = this.props;
     if (!image || this.isUnMounted) {
-      return
+      return;
     }
 
-    this.image = image
+    this.image = image;
 
-    this.setState({ isLoading: true })
+    this.setState({ isLoading: true });
 
-    const secretDetail = imageRegistries.find(item => item.value === secret)
-    const cluster = get(secretDetail, 'cluster')
+    const secretDetail = imageRegistries.find(item => item.value === secret);
+    const cluster = get(secretDetail, 'cluster');
     const result = await this.store.getImageDetail({
       cluster,
       namespace,
       image,
       secret,
       insecure,
-    })
-    const selectedImage = { ...result, ...rest, image }
-    set(globals, `cache[${image}]`, selectedImage)
+    });
+    const selectedImage = { ...result, ...rest, image };
+    set(globals, `cache[${image}]`, selectedImage);
 
     if (!isEmpty(selectedImage.exposedPorts)) {
-      this.setState({ showPortsTips: true })
+      this.setState({ showPortsTips: true });
     }
 
-    this.setState({ isLoading: false })
-  }
+    this.setState({ isLoading: false });
+  };
 
   handleFillPorts = () => {
     const ports = this.selectedImage.exposedPorts.map(port => {
-      const protocol = port.split('/')[1]
-      const containerPort = Number(port.split('/')[0])
+      const protocol = port.split('/')[1];
+      const containerPort = Number(port.split('/')[0]);
 
       return {
         name: `${protocol}-${containerPort}`,
         protocol: protocol.toUpperCase(),
         containerPort,
         servicePort: containerPort,
-      }
-    })
+      };
+    });
 
     if (!isEmpty(ports)) {
-      set(this.props.formTemplate, 'ports', ports)
-      this.context.forceUpdate && this.context.forceUpdate()
+      set(this.props.formTemplate, 'ports', ports);
+      this.context.forceUpdate && this.context.forceUpdate();
     }
-  }
+  };
 
   renderWaringText = () => {
-    return <p>{t('IGNORE_CERT_WARN_DESC')}</p>
-  }
+    return <p>{t('IGNORE_CERT_WARN_DESC')}</p>;
+  };
 
   renderSelectedContent = () => {
     if (this.state.isLoading) {
@@ -162,11 +162,11 @@ export default class ImageSearch extends Component {
         <Loading>
           <div className={styles.selectedContent} />
         </Loading>
-      )
+      );
     }
 
     if (isObject(this.selectedImage)) {
-      const { message, status } = this.selectedImage
+      const { message, status } = this.selectedImage;
 
       if (status === 'failed') {
         if (message && message.includes('x509')) {
@@ -190,7 +190,7 @@ export default class ImageSearch extends Component {
                 </Tooltip>
               </p>
             </div>
-          )
+          );
         }
 
         return (
@@ -202,7 +202,7 @@ export default class ImageSearch extends Component {
               <p className={styles.desc}>{t('NO_IMAGE_FOUND')}</p>
             </div>
           </div>
-        )
+        );
       }
 
       const {
@@ -211,12 +211,12 @@ export default class ImageSearch extends Component {
         exposedPorts = [],
         logo,
         short_description,
-      } = this.selectedImage
+      } = this.selectedImage;
 
       const registry =
-        image.indexOf('/') > -1 ? image.split('/')[0] : 'docker.io'
-      const ports = exposedPorts.join('; ')
-      const _message = message || short_description
+        image.indexOf('/') > -1 ? image.split('/')[0] : 'docker.io';
+      const ports = exposedPorts.join('; ');
+      const _message = message || short_description;
 
       return (
         <div className={styles.selectedContent}>
@@ -268,7 +268,7 @@ export default class ImageSearch extends Component {
             </div>
           </div>
         </div>
-      )
+      );
     }
     return (
       <div className={classnames(styles.selectedContent, styles.emptyContent)}>
@@ -277,8 +277,8 @@ export default class ImageSearch extends Component {
           <p className={styles.desc}>{t('SET_IMAGE_DESC')}</p>
         </div>
       </div>
-    )
-  }
+    );
+  };
 
   render() {
     return (
@@ -303,6 +303,6 @@ export default class ImageSearch extends Component {
         </Form.Item>
         {globals.config.enableImageSearch && this.renderSelectedContent()}
       </>
-    )
+    );
   }
 }

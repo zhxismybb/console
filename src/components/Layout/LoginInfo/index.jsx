@@ -123,9 +123,9 @@ export default class LoginInfo extends Component {
               [styles.isAppsPage]: isAppsPage,
             })}
           >
-            <Icon name="human" />
+            <Icon name="human" type="light" />
             {globals.user.username}
-            <Icon name="caret-down" type={isAppsPage ? 'white' : 'dark'} />
+            <Icon name="caret-down" type={isAppsPage ? 'white' : 'light'} />
           </div>
         </Dropdown>
         {this.renderModals()}

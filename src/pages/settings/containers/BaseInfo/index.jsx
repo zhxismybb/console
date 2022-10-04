@@ -16,27 +16,27 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { Component } from 'react'
-import { Panel, Text } from 'components/Base'
-import Banner from 'components/Cards/Banner'
-import { getDocsUrl } from 'utils'
+import React, { Component } from 'react';
+import { Panel, Text } from 'components/Base';
+import Banner from 'components/Cards/Banner';
+// import { getDocsUrl } from 'utils';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 export default class BaseInfo extends Component {
   state = {
     showEdit: false,
-  }
+  };
 
   showEdit = () => {
-    this.setState({ showEdit: true })
-  }
+    this.setState({ showEdit: true });
+  };
 
   hideEdit = () => {
-    this.setState({ showEdit: false })
-  }
+    this.setState({ showEdit: false });
+  };
 
-  handleEdit = () => {}
+  handleEdit = () => {};
 
   render() {
     return (
@@ -53,13 +53,13 @@ export default class BaseInfo extends Component {
               title={location.host}
               description={t('PLATFORM_ADDRESS')}
             />
-            <a
+            {/* <a
               href={`${getDocsUrl('custom_console')}`}
               target="_blank"
               rel="noreferrer noopener"
             >
               {t('HOW_TO_MODIFY_PLATFORM_INFO')}
-            </a>
+            </a> */}
           </div>
           <div className={styles.content}>
             <div className={styles.image}>
@@ -78,6 +78,6 @@ export default class BaseInfo extends Component {
           </div>
         </Panel>
       </div>
-    )
+    );
   }
 }

@@ -44,7 +44,7 @@ module.exports = {
   ADD_CONTAINER_DESC: 'Customize container settings to create a container.',
   CONTAINERS: 'Containers',
   IMAGE_TIME_SIZE_LAYER: 'Updated {time}',
-  IMAGE_DESC: 'To use a private image registry, you need to first create an image registry secret. <a href={link} target="_blank">Learn More</a>',
+  IMAGE_DESC: 'To use a private image registry, you need to first create an image registry secret.',
   IMAGE_PLACEHOLDER: 'Image name or path such as nginx:latest',
   IMAGE_EMPTY: 'Please set an image.',
   ENTER_POSITIVE_INTEGER_DESC: 'Please enter a positive integer.',

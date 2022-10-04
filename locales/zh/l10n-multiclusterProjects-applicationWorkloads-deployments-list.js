@@ -43,7 +43,7 @@ module.exports = {
   ADD_CONTAINER_DESC: '自定义容器的设置以创建容器。',
   CONTAINERS: '容器',
   IMAGE_TIME_SIZE_LAYER: '更新于 {time}',
-  IMAGE_DESC: '如需使用私有镜像服务，您需要先创建镜像服务保密字典。<a href={link} target="_blank">了解更多</a>',
+  IMAGE_DESC: '如需使用私有镜像服务，您需要先创建镜像服务保密字典。',
   IMAGE_PLACEHOLDER: '镜像名称或路径，例如 nginx:latest',
   IMAGE_EMPTY: '请设置镜像。',
   ENTER_POSITIVE_INTEGER_DESC: '请输入一个正整数。',

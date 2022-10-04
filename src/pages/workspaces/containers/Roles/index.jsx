@@ -16,18 +16,18 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import { toJS } from 'mobx'
+import React from 'react';
+import { toJS } from 'mobx';
 
-import { Avatar } from 'components/Base'
-import Banner from 'components/Cards/Banner'
-import Table from 'components/Tables/List'
-import withList, { ListPage } from 'components/HOCs/withList'
+import { Avatar } from 'components/Base';
+import Banner from 'components/Cards/Banner';
+import Table from 'components/Tables/List';
+import withList, { ListPage } from 'components/HOCs/withList';
 
-import { getLocalTime, getDisplayName } from 'utils'
-import { ICON_TYPES } from 'utils/constants'
+import { getLocalTime, getDisplayName } from 'utils';
+import { ICON_TYPES } from 'utils/constants';
 
-import RoleStore from 'stores/role'
+import RoleStore from 'stores/role';
 
 @withList({
   store: new RoleStore('workspaceroles'),
@@ -37,20 +37,20 @@ import RoleStore from 'stores/role'
 })
 export default class Roles extends React.Component {
   componentDidMount() {
-    this.props.store.fetchRoleTemplates(this.props.match.params)
+    this.props.store.fetchRoleTemplates(this.props.match.params);
   }
 
   get workspace() {
-    return this.props.match.params.workspace
+    return this.props.match.params.workspace;
   }
 
   showAction = record =>
     !globals.config.presetWorkspaceRoles.includes(
       record.name.slice(this.workspace.length + 1)
-    )
+    );
 
   get itemActions() {
-    const { trigger, store, name, module, routing } = this.props
+    const { trigger, store, name, module, routing } = this.props;
     return [
       {
         key: 'edit',
@@ -92,21 +92,21 @@ export default class Roles extends React.Component {
             success: routing.query,
           }),
       },
-    ]
+    ];
   }
 
   get tableActions() {
-    const { tableProps } = this.props
+    const { tableProps } = this.props;
     return {
       ...tableProps.tableActions,
       onCreate: this.showCreate,
       selectActions: [],
-    }
+    };
   }
 
   getColumns = () => {
-    const { getSortOrder } = this.props
-    const { workspace } = this.props.match.params
+    const { getSortOrder } = this.props;
+    const { workspace } = this.props.match.params;
     return [
       {
         title: t('NAME'),
@@ -136,27 +136,27 @@ export default class Roles extends React.Component {
         width: '19%',
         render: time => getLocalTime(time).format('YYYY-MM-DD HH:mm:ss'),
       },
-    ]
-  }
+    ];
+  };
 
   showCreate = () => {
-    const { match, store, trigger, getData } = this.props
+    const { match, store, trigger, getData } = this.props;
     return trigger('role.create', {
       title: t('CREATE_WORKSPACE_ROLE'),
       roleTemplates: toJS(store.roleTemplates.data),
       workspace: match.params.workspace,
       success: getData,
-    })
-  }
+    });
+  };
 
   get emptyProps() {
     return {
       desc: t('WORKSPACE_ROLE_EMPTY_DESC'),
-    }
+    };
   }
 
   render() {
-    const { bannerProps, tableProps } = this.props
+    const { bannerProps, tableProps } = this.props;
     return (
       <ListPage {...this.props} noWatch>
         <Banner
@@ -173,6 +173,6 @@ export default class Roles extends React.Component {
           searchType="name"
         />
       </ListPage>
-    )
+    );
   }
 }

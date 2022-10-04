@@ -16,64 +16,64 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import { isEmpty } from 'lodash'
+import React from 'react';
+import { isEmpty } from 'lodash';
 
-import { getLocalTime } from 'utils'
-import { Icon } from '@kube-design/components'
-import { inject } from 'mobx-react'
+import { getLocalTime } from 'utils';
+import { Icon } from '@kube-design/components';
+import { inject } from 'mobx-react';
 
-import EmptyList from 'components/Cards/EmptyList'
-import AdminDashboard from './Admin'
+import EmptyList from 'components/Cards/EmptyList';
+import AdminDashboard from './Admin';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 @inject('rootStore')
 class Dashboard extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     if (!globals.app.isPlatformAdmin) {
       if (globals.user.globalrole === 'users-manager') {
-        return this.routing.push(`/access/accounts`)
+        return this.routing.push(`/access/accounts`);
       }
 
       if (globals.app.getActions({ module: 'workspaces' }).includes('create')) {
-        return this.routing.push(`/access/workspaces`)
+        return this.routing.push(`/access/workspaces`);
       }
 
       if (!isEmpty(globals.user.workspaces)) {
-        return this.routing.push(`/workspaces/${this.workspace}`)
+        return this.routing.push(`/workspaces/${this.workspace}`);
       }
     }
   }
 
   get routing() {
-    return this.props.rootStore.routing
+    return this.props.rootStore.routing;
   }
 
   get workspace() {
-    let workspace
+    let workspace;
     const savedWorkspace = localStorage.getItem(
       `${globals.user.username}-workspace`
-    )
+    );
 
     if (savedWorkspace && globals.app.workspaces.includes(savedWorkspace)) {
-      workspace = savedWorkspace
+      workspace = savedWorkspace;
     } else {
-      workspace = globals.app.workspaces[0]
+      workspace = globals.app.workspaces[0];
     }
 
-    return workspace
+    return workspace;
   }
 
   renderHeader() {
     const { avatar_url, globalrole, username, lastLoginTime } =
-      globals.user || {}
+      globals.user || {};
 
     const loginTime = `${t('LAST_LOGIN_TIME')}${getLocalTime(
       lastLoginTime
-    ).format(`YYYY-MM-DD HH:mm:ss`)}`
+    ).format(`YYYY-MM-DD HH:mm:ss`)}`;
 
     return (
       <div className={styles.header} data-test="dashboard-header">
@@ -94,12 +94,12 @@ class Dashboard extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   renderContent() {
     if (globals.app.isPlatformAdmin) {
-      return <AdminDashboard />
+      return <AdminDashboard />;
     }
 
     return (
@@ -107,7 +107,7 @@ class Dashboard extends React.Component {
         title={t('USER_DASHBOARD_EMPTY_TITLE')}
         desc={t('USER_DASHBOARD_EMPTY_DESC')}
       />
-    )
+    );
   }
 
   render() {
@@ -118,8 +118,8 @@ class Dashboard extends React.Component {
           {this.renderContent()}
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Dashboard
+export default Dashboard;

@@ -16,23 +16,22 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import { Form, Icon, Select } from '@kube-design/components'
-import { Text } from 'components/Base'
-import { getDocsUrl } from 'utils'
-import EditMode from 'components/EditMode'
+import React from 'react';
+import { Form, Icon, Select } from '@kube-design/components';
+import { Text } from 'components/Base';
+import EditMode from 'components/EditMode';
 
-import { get } from 'lodash'
-import Title from '../Title'
-import styles from './index.scss'
+import { get } from 'lodash';
+import Title from '../Title';
+import styles from './index.scss';
 
 export default class Confiuguration extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       connectType: get(props.formTemplate, 'spec.connection.type', 'direct'),
-    }
+    };
   }
 
   get types() {
@@ -45,23 +44,23 @@ export default class Confiuguration extends React.Component {
         label: t('CONNTECT_PROXY'),
         value: 'proxy',
       },
-    ]
+    ];
   }
 
   get editOptions() {
     return {
       width: '100%',
       height: '100%',
-    }
+    };
   }
 
   handleTypeChange = type => {
-    this.setState({ connectType: type })
-  }
+    this.setState({ connectType: type });
+  };
 
   render() {
-    const { formRef, formTemplate } = this.props
-    const { connectType } = this.state
+    const { formRef, formTemplate } = this.props;
+    const { connectType } = this.state;
     return (
       <div>
         <Title
@@ -90,14 +89,14 @@ export default class Confiuguration extends React.Component {
                 <div className={styles.editorTitle}>
                   <Icon name="kubernetes" size={20} />
                   <span>{t('INPUT_KUBECONFIG')}</span>
-                  <a
+                  {/* <a
                     className={styles.link}
                     href={getDocsUrl('kube_config')}
                     target="_blank"
                     rel="noreferrer noopener"
                   >
                     {t('HOW_TO_GET_KUBECONFIG')}
-                  </a>
+                  </a> */}
                 </div>
                 <Form.Item
                   rules={[{ required: true, message: t('INPUT_KUBECONFIG') }]}
@@ -124,6 +123,6 @@ export default class Confiuguration extends React.Component {
           )}
         </Form>
       </div>
-    )
+    );
   }
 }

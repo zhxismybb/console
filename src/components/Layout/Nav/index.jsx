@@ -16,14 +16,14 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { trimEnd } from 'lodash'
+import { trimEnd } from 'lodash';
 
-import NavItem from './NavItem'
+import NavItem from './NavItem';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 class Nav extends React.Component {
   static propTypes = {
@@ -33,65 +33,65 @@ class Nav extends React.Component {
     checkSelect: PropTypes.func,
     onItemClick: PropTypes.func,
     innerRef: PropTypes.object,
-  }
+  };
 
   static defaultProps = {
     className: '',
     prefix: '',
     checkSelect() {},
     onItemClick() {},
-  }
+  };
 
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       openedNav: this.getOpenedNav(),
-    }
+    };
   }
 
   get currentPath() {
     const {
       location: { pathname },
       match: { url },
-    } = this.props
+    } = this.props;
 
-    const length = trimEnd(url, '/').length
-    return pathname.slice(length + 1)
+    const length = trimEnd(url, '/').length;
+    return pathname.slice(length + 1);
   }
 
   getOpenedNav() {
-    let name = ''
-    const { navs } = this.props
-    const current = this.currentPath
+    let name = '';
+    const { navs } = this.props;
+    const current = this.currentPath;
     navs.forEach(nav => {
       nav.items.forEach(item => {
         if (
           item.children &&
           item.children.some(child => {
             if (child.name === current) {
-              return true
+              return true;
             }
             if (child.tabs) {
-              return child.tabs.some(tab => tab.name === current)
+              return child.tabs.some(tab => tab.name === current);
             }
 
-            return false
+            return false;
           })
         ) {
-          name = item.name
+          name = item.name;
         }
-      })
-    })
+      });
+    });
 
-    return name
+    return name;
   }
 
   handleItemOpen = name => {
     this.setState(({ openedNav }) => ({
       openedNav: openedNav === name ? '' : name,
-    }))
-  }
+    }));
+  };
 
   render() {
     const {
@@ -101,11 +101,11 @@ class Nav extends React.Component {
       innerRef,
       onItemClick,
       disabled,
-    } = this.props
+    } = this.props;
 
-    const { openedNav } = this.state
-    const current = this.currentPath
-    const prefix = trimEnd(match.url, '/')
+    const { openedNav } = this.state;
+    const current = this.currentPath;
+    const prefix = trimEnd(match.url, '/');
 
     return (
       <div ref={innerRef} className={className}>
@@ -129,8 +129,8 @@ class Nav extends React.Component {
           </div>
         ))}
       </div>
-    )
+    );
   }
 }
 
-export default Nav
+export default Nav;

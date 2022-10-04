@@ -16,16 +16,15 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import { Form, Icon, Columns, Column } from '@kube-design/components'
-import { getDocsUrl } from 'utils'
-import EditMode from 'components/EditMode'
-import ClusterTitle from 'components/Clusters/ClusterTitle'
-import { Text, Modal } from 'components/Base'
-import PropTypes from 'prop-types'
-import { observer } from 'mobx-react'
-import { isEmpty } from 'lodash'
-import styles from './index.scss'
+import React from 'react';
+import { Form, Icon, Columns, Column } from '@kube-design/components';
+import EditMode from 'components/EditMode';
+import ClusterTitle from 'components/Clusters/ClusterTitle';
+import { Text, Modal } from 'components/Base';
+import PropTypes from 'prop-types';
+import { observer } from 'mobx-react';
+import { isEmpty } from 'lodash';
+import styles from './index.scss';
 
 @observer
 export default class KubeConfigModal extends React.Component {
@@ -34,46 +33,46 @@ export default class KubeConfigModal extends React.Component {
     visible: PropTypes.bool,
     onOk: PropTypes.func,
     onCancel: PropTypes.func,
-  }
+  };
 
   static defaultProps = {
     formTemplate: {},
     visible: false,
     onOk() {},
     onCancel() {},
-  }
+  };
 
-  formRef = React.createRef()
+  formRef = React.createRef();
 
   configValidator = (rule, value, callback) => {
     if (!value) {
-      return callback()
+      return callback();
     }
 
     if (isEmpty(value)) {
       return callback({
         message: t('INPUT_KUBECONFIG'),
         field: rule.field,
-      })
+      });
     }
 
-    callback()
-  }
+    callback();
+  };
 
   handleSubmit = () => {
-    const form = this.formRef.current
+    const form = this.formRef.current;
 
     form &&
       form.validate(() => {
-        const { formTemplate, onOk } = this.props
-        onOk(formTemplate)
-      })
-  }
+        const { formTemplate, onOk } = this.props;
+        onOk(formTemplate);
+      });
+  };
 
   render() {
-    const { detail, formTemplate, visible, store, ...res } = this.props
-    const expiredDay = detail.expiredDay
-    const isExpired = expiredDay && expiredDay < 0
+    const { detail, formTemplate, visible, store, ...res } = this.props;
+    const expiredDay = detail.expiredDay;
+    const isExpired = expiredDay && expiredDay < 0;
 
     return (
       <Modal
@@ -102,14 +101,14 @@ export default class KubeConfigModal extends React.Component {
             <div className={styles.editorTitle}>
               <Icon name="kubernetes" size={20} />
               <span>{t('INPUT_KUBECONFIG')}</span>
-              <a
+              {/* <a
                 className={styles.link}
                 href={getDocsUrl('kube_config')}
                 target="_blank"
                 rel="noreferrer noopener"
               >
                 {t('HOW_TO_GET_KUBECONFIG')}
-              </a>
+              </a> */}
             </div>
             <Form.Item
               rules={[
@@ -123,6 +122,6 @@ export default class KubeConfigModal extends React.Component {
           </div>
         </Form>
       </Modal>
-    )
+    );
   }
 }

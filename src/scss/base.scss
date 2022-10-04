@@ -1,8 +1,8 @@
 html {
   overflow-y: visible; // overwrite overflow from minireset
   margin-right: calc(100% - 100vw); // fix jumping scrollbar
-  background-color: $body-bg-color;
   height: 100%;
+  background-color: $bg-color;
 }
 
 body {
@@ -167,8 +167,8 @@ pre {
 
   &:hover {
     svg {
-      color: #00aa72;
-      fill: #90e0c5;
+      color: $theme-color;
+      fill: $theme-light-color;
     }
   }
 }
@@ -191,7 +191,8 @@ pre {
     top: 88px;
     width: $nav-width;
     padding: 0 20px 40px 20px;
-    z-index: 201;
+    // z-index: 201;
+    z-index: 199;
 
     @media (max-width: 1366px) {
       width: $narrow-nav-width;
@@ -268,4 +269,69 @@ pre {
 
 .alert-message {
   word-break: break-all;
+}
+
+.focus-theme {
+  background-color: $theme-color;
+  box-shadow: 0 8px 16px 0 rgba(26, 144, 255, 0.2);
+}
+// :global {
+.button-primary,
+.button-control {
+  border: 1px solid $theme-color;
+  background-color: $theme-color;
+  box-shadow: 0 8px 16px 0 rgba(26, 144, 255, 0.2);
+}
+.button-default {
+  border: 1px solid transparent;
+  box-shadow: 0 2px #00000004;
+  border-color: #d9d9d9;
+  background: #fff;
+}
+.button {
+  border-radius: 2px;
+}
+label.checkbox.checked:before,
+label.checkbox.checked:hover:before,
+.radio-group-button label.radio-button.checked {
+  background-color: $theme-color;
+}
+// }
+input.input:not([readonly]):not([disabled]):focus,
+.input-search .input:not([readonly]):not([disabled]):hover,
+.input-search .input:not([readonly]):not([disabled]):focus,
+.input-search .input:not([readonly]):not([disabled]):active,
+.input-search .input:not([readonly]):not([disabled]):visited {
+  border-color: $theme-light-color;
+  box-shadow: 0 8px 16px 0 rgba(26, 144, 255, 0.2);
+}
+.radio-group-button {
+  border-color: #69c0ff24;
+}
+.ReactModal__Overlay--after-open {
+  background-color: #00000073 !important;
+}
+.alert-info {
+  background-color: #e6f6ff;
+  border: 1px solid #91d5ff;
+}
+.alert-content {
+  color: #000000d9 !important;
+}
+.input-search .input {
+  border-radius: 2px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+}
+.form-item.error-item .input,
+.form-item.error-item .textarea,
+.form-item.error-item .select-control {
+  background: #fff;
+  border-color: $error-color !important;
+}
+.form-item-error {
+  color: $error-color;
+}
+a {
+  color: #1890ff !important;
 }

@@ -16,9 +16,9 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Modal from './modal'
-import Form from './form'
+import Modal from './modal';
+import Form from './form';
 
-Modal.Form = Form
+Modal.Form = Form;
 
-export default Modal
+export default Modal;

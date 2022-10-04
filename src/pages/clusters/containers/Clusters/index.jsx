@@ -16,101 +16,101 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { isEmpty, sortBy } from 'lodash'
-import React from 'react'
-import { observer, inject } from 'mobx-react'
+import { isEmpty, sortBy } from 'lodash';
+import React from 'react';
+import { observer, inject } from 'mobx-react';
 import {
   Button,
   Loading,
   Pagination,
   InputSearch,
-} from '@kube-design/components'
-import Banner from 'components/Cards/Banner'
-import EmptyList from 'components/Cards/EmptyList'
-import ClusterCard from 'clusters/components/Cards/Cluster'
-import ClusterStore from 'stores/cluster'
-import { trigger } from 'utils/action'
+} from '@kube-design/components';
+import Banner from 'components/Cards/Banner';
+import EmptyList from 'components/Cards/EmptyList';
+import ClusterCard from 'clusters/components/Cards/Cluster';
+import ClusterStore from 'stores/cluster';
+import { trigger } from 'utils/action';
 
-import EditBasicInfoModal from 'clusters/components/Modals/EditBasicInfo'
-import styles from './index.scss'
+import EditBasicInfoModal from 'clusters/components/Modals/EditBasicInfo';
+import styles from './index.scss';
 
 @inject('rootStore')
 @observer
 @trigger
 class Clusters extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.store = new ClusterStore()
-    this.hostStore = new ClusterStore()
+    this.store = new ClusterStore();
+    this.hostStore = new ClusterStore();
   }
 
   componentDidMount() {
-    this.initData()
+    this.initData();
   }
 
   get authKey() {
-    return 'clusters'
+    return 'clusters';
   }
 
   get enabledActions() {
     return globals.app.getActions({
       module: this.authKey,
-    })
+    });
   }
 
   get isOperation() {
-    return this.enabledActions.includes('create')
+    return this.enabledActions.includes('create');
   }
 
   get routing() {
-    return this.props.rootStore.routing
+    return this.props.rootStore.routing;
   }
 
   initData = () => {
-    this.fetchHostData()
-    this.fetchData()
-  }
+    this.fetchHostData();
+    this.fetchData();
+  };
 
   fetchData = (params = {}) => {
     this.store.fetchList({
       ...params,
       limit: 10,
       labelSelector: '!cluster-role.kubesphere.io/host',
-    })
-  }
+    });
+  };
 
   fetchHostData = (params = {}) => {
     this.hostStore.fetchList({
       ...params,
       labelSelector: 'cluster-role.kubesphere.io/host=',
       limit: -1,
-    })
-  }
+    });
+  };
 
   showAddCluster = () => {
     this.trigger('cluster.add', {
       module: 'clusters',
       success: this.routing.push,
-    })
-  }
+    });
+  };
 
   handlePagination = page => {
-    this.fetchData({ page })
-  }
+    this.fetchData({ page });
+  };
 
   handleRefresh = () => {
-    this.fetchData({ page: 1 })
-  }
+    this.fetchData({ page: 1 });
+  };
 
   handleSearch = name => {
-    this.fetchData({ name })
-    this.fetchHostData({ name })
-  }
+    this.fetchData({ name });
+    this.fetchHostData({ name });
+  };
 
   enterCluster = async cluster => {
-    this.routing.push(`/clusters/${cluster}/overview`)
-  }
+    this.routing.push(`/clusters/${cluster}/overview`);
+  };
 
   getItemActions = item => {
     const actions = [
@@ -124,7 +124,7 @@ class Clusters extends React.Component {
             detail: record,
             modal: EditBasicInfoModal,
             success: this.initData,
-          })
+          });
         },
       },
       {
@@ -136,7 +136,7 @@ class Clusters extends React.Component {
           this.trigger('cluster.updateKubeConfig', {
             detail: record,
             success: this.initData,
-          })
+          });
         },
       },
       {
@@ -148,21 +148,21 @@ class Clusters extends React.Component {
           this.trigger('cluster.unbind', {
             detail: record,
             success: this.initData,
-          })
+          });
         },
       },
-    ]
+    ];
 
-    return actions.filter(action => action.show)
-  }
+    return actions.filter(action => action.show);
+  };
 
   renderList() {
-    const { data, page, total, limit, filters, isLoading } = this.store.list
+    const { data, page, total, limit, filters, isLoading } = this.store.list;
     const {
       data: hostClusters,
       isLoading: isHostLoading,
       filters: hostFilters,
-    } = this.hostStore.list
+    } = this.hostStore.list;
 
     if (
       isEmpty(data) &&
@@ -185,11 +185,11 @@ class Clusters extends React.Component {
             ) : null
           }
         />
-      )
+      );
     }
 
     if (isLoading || isHostLoading) {
-      return <Loading className={styles.loading} />
+      return <Loading className={styles.loading} />;
     }
 
     if (
@@ -208,10 +208,10 @@ class Clusters extends React.Component {
             <p>{t('NO_RESOURCE_FOUND')}</p>
           </div>
         </>
-      )
+      );
     }
 
-    const _data = sortBy(data, item => item.expiredDay)
+    const _data = sortBy(data, item => item.expiredDay);
 
     return (
       <ul className={styles.cards}>
@@ -259,7 +259,7 @@ class Clusters extends React.Component {
           </div>
         )}
       </ul>
-    )
+    );
   }
 
   renderSearch() {
@@ -286,7 +286,7 @@ class Clusters extends React.Component {
           </Button>
         )}
       </div>
-    )
+    );
   }
 
   render() {
@@ -301,8 +301,8 @@ class Clusters extends React.Component {
         />
         {this.renderList()}
       </div>
-    )
+    );
   }
 }
 
-export default Clusters
+export default Clusters;

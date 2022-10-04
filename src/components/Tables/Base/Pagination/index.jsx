@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   Level,
   LevelItem,
@@ -8,53 +8,53 @@ import {
   Dropdown,
   Menu,
   Icon,
-} from '@kube-design/components'
-import classNames from 'classnames'
-import { PAGESIZE_OPTION } from 'utils/constants'
-import styles from './index.scss'
+} from '@kube-design/components';
+import classNames from 'classnames';
+import { PAGESIZE_OPTION } from 'utils/constants';
+import styles from './index.scss';
 
 export default class Pagination extends Component {
   state = {
     pagesize: 10,
-  }
+  };
 
   get totalPage() {
-    const { total, limit } = this.props
-    const left = total % limit
-    return left === 0 ? Math.max(total / limit, 1) : (total - left) / limit + 1
+    const { total, limit } = this.props;
+    const left = total % limit;
+    return left === 0 ? Math.max(total / limit, 1) : (total - left) / limit + 1;
   }
 
   static getDerivedStateFromProps(props, state) {
     if (props.limit !== state.pagesize) {
       return {
         pagesize: props.limit,
-      }
+      };
     }
-    return null
+    return null;
   }
 
   handlePrev = () => {
-    const { page, onChange, limit } = this.props
+    const { page, onChange, limit } = this.props;
 
     onChange &&
       onChange({
         page: Math.max(page - 1, 1),
         limit,
-      })
-  }
+      });
+  };
 
   handleNext = () => {
-    const { page, onChange, limit } = this.props
+    const { page, onChange, limit } = this.props;
     onChange &&
       onChange({
         page: Math.min(page + 1, this.totalPage),
         limit,
-      })
-  }
+      });
+  };
 
   renderPagesize = () => {
-    const { pagesize } = this.state
-    const { total } = this.props
+    const { pagesize } = this.state;
+    const { total } = this.props;
     return (
       <div className={styles.pageSizeBox}>
         <Dropdown
@@ -71,7 +71,7 @@ export default class Pagination extends Component {
                   key={item}
                 >
                   <span>
-                    {item} {t('TABLE_UNIT')}
+                    {item} {t('项')}
                   </span>
                 </Menu.MenuItem>
               ))}
@@ -80,7 +80,7 @@ export default class Pagination extends Component {
         >
           <div className={styles.pagesize}>
             <span className={styles.text}>
-              {pagesize} {t('TABLE_UNIT')}
+              {pagesize} {t('项')}
             </span>
             <Icon name="caret-down" size={16} />
           </div>
@@ -88,11 +88,11 @@ export default class Pagination extends Component {
         <div className={styles.gap}></div>
         <span>{t('TOTAL_ITEMS', { num: total })}</span>
       </div>
-    )
-  }
+    );
+  };
 
   handlePageSizeClick = (e, pagesize) => {
-    const { onChange } = this.props
+    const { onChange } = this.props;
     this.setState(
       {
         pagesize,
@@ -101,15 +101,15 @@ export default class Pagination extends Component {
         onChange({
           page: 1,
           limit: pagesize,
-        })
+        });
       }
-    )
-  }
+    );
+  };
 
   renderPageDropDown = () => {
-    const { page } = this.props
+    const { page } = this.props;
     if (this.totalPage > 0) {
-      const items = []
+      const items = [];
       for (let i = 0; i < this.totalPage; i++) {
         items.push(
           <Menu.MenuItem
@@ -120,7 +120,7 @@ export default class Pagination extends Component {
           >
             {i + 1}
           </Menu.MenuItem>
-        )
+        );
       }
       return (
         <Menu
@@ -131,22 +131,22 @@ export default class Pagination extends Component {
         >
           {items}
         </Menu>
-      )
+      );
     }
-    return null
-  }
+    return null;
+  };
 
   handlePageMenuClick = (e, pageNum) => {
-    const { onChange, limit } = this.props
+    const { onChange, limit } = this.props;
     onChange &&
       onChange({
         page: Math.min(pageNum, this.totalPage),
         limit,
-      })
-  }
+      });
+  };
 
   render() {
-    const { page } = this.props
+    const { page } = this.props;
     return (
       <Level>
         <LevelLeft>{this.renderPagesize()}</LevelLeft>
@@ -182,6 +182,6 @@ export default class Pagination extends Component {
           </LevelItem>
         </LevelRight>
       </Level>
-    )
+    );
   }
 }

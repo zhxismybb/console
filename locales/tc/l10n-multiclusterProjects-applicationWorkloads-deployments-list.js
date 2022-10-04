@@ -43,7 +43,7 @@ module.exports = {
   ADD_CONTAINER_DESC: 'Kubesphere 支持從鏡像倉庫拉取鏡像以及通過代碼構建新的鏡像並部署',
   CONTAINERS: '容器鏡像',
   IMAGE_TIME_SIZE_LAYER: 'Updated {time}',
-  IMAGE_DESC: '要從私有鏡像倉庫部署，需要先<a href={link} target="_blank">創建鏡像倉庫密鑰</a>，然後拉取鏡像。',
+  IMAGE_DESC: '要從私有鏡像倉庫部署。',
   IMAGE_PLACEHOLDER: '點擊右側圖標可選擇鏡像，或直接輸入名稱 例：nginx:latest',
   IMAGE_EMPTY: '請設置鏡像',
   ENTER_POSITIVE_INTEGER_DESC: '副本輸入不合法',

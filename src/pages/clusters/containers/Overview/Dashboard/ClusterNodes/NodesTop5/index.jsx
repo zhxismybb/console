@@ -16,44 +16,44 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { get } from 'lodash'
-import React, { Component } from 'react'
-import { observer } from 'mobx-react'
-import { Link } from 'react-router-dom'
-import { Button, Icon, Select } from '@kube-design/components'
-import { Text } from 'components/Base'
+import { get } from 'lodash';
+import React, { Component } from 'react';
+import { observer } from 'mobx-react';
+import { Link } from 'react-router-dom';
+import { Button, Icon, Select } from '@kube-design/components';
+import { Text } from 'components/Base';
 
-import NodeStore from 'stores/rank/node'
+import NodeStore from 'stores/rank/node';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 const storeParams = {
   limit: 5,
   page: 1,
   sort_type: 'desc',
-}
+};
 
 @observer
 export default class NodesTop5 extends Component {
-  store = new NodeStore({ ...storeParams, cluster: this.cluster })
+  store = new NodeStore({ ...storeParams, cluster: this.cluster });
 
   componentDidMount() {
-    this.store.fetchAll()
+    this.store.fetchAll();
   }
 
   get cluster() {
-    return this.props.cluster
+    return this.props.cluster;
   }
 
   get options() {
     return this.store.sort_metric_options.map(option => ({
       value: option,
       label: t(`SORT_BY_${option.toUpperCase()}`),
-    }))
+    }));
   }
 
   render() {
-    const { data } = this.store
+    const { data } = this.store;
     return (
       <div>
         <div className={styles.header}>
@@ -96,6 +96,6 @@ export default class NodesTop5 extends Component {
           </Link>
         </div>
       </div>
-    )
+    );
   }
 }

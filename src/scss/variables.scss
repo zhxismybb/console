@@ -1,7 +1,13 @@
 //
 // Variables
 // --------------------------------------------------
-
+// 主题色
+$theme-color: #1890ff;
+$theme-light-color: #69c0ff;
+$bg-color: #fafbfb;
+$primary: $theme-color;
+$light-bg: #daeefe;
+$green-color03: $theme-color;
 // init
 $dark-color01: #79879c;
 $dark-color02: #6b7b95;
@@ -12,17 +18,16 @@ $dark-color06: #36435c;
 $dark-color07: #242e42;
 $dark-color08: #181d28;
 $light-color01: #f9fbfd;
-$light-color02: #edf4f0;
+$light-color02: #edf4f000;
 // $light-color03: #e3e9ef;
 $light-color04: #d8dee5;
 $light-color05: #d1d7df;
 $light-color06: #ccd3db;
 $light-color07: #c1c9d1;
 $light-color08: #abb4be;
-$light-color09: #edf4f0;
+$light-color09: #edf4f000;
 $green-color01: #c4e6d4;
 $green-color02: #a2d8bb;
-$green-color03: #55bc8a;
 $green-color04: #479e88;
 $green-color05: #3b747a;
 $blue-color01: #c7deef;
@@ -56,7 +61,6 @@ $yellow-dark: $yellow-color04;
 $red: $red-color03;
 $red-dark: $red-color04;
 
-$primary: $green-color03;
 $sub: $blue-color03;
 $warning: $yellow-color03;
 $danger: $red-color03;
@@ -196,3 +200,6 @@ $tree-text-color: $dark-color07;
 $tree-node-hover-bg: $light-color02;
 $tree-node-selected-bg: $dark-color07;
 $tree-switch-hover-color: $light-color06;
+
+$text-theme-color: #334458;
+$error-color: #ff4d4f;

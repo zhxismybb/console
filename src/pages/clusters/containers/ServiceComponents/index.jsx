@@ -16,52 +16,52 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import { observer, inject } from 'mobx-react'
-import { isEmpty } from 'lodash'
-import { RadioGroup, RadioButton, Tag, Loading } from '@kube-design/components'
-import Banner from 'components/Cards/Banner'
-import { parse } from 'qs'
+import React from 'react';
+import { observer, inject } from 'mobx-react';
+import { isEmpty } from 'lodash';
+import { RadioGroup, RadioButton, Tag, Loading } from '@kube-design/components';
+import Banner from 'components/Cards/Banner';
+import { parse } from 'qs';
 
-import ComponentStore from 'stores/component'
+import ComponentStore from 'stores/component';
 
-import Card from './Card'
+import Card from './Card';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
 @inject('rootStore')
 @observer
 export default class ServiceComponents extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    const { type } = parse(location.search.slice(1)) || {}
+    const { type } = parse(location.search.slice(1)) || {};
 
     this.state = {
       type: type || 'kubesphere',
-    }
+    };
 
-    this.configs = this.getConfigs()
-    this.store = new ComponentStore()
-    this.store.fetchList({ cluster: this.cluster })
+    this.configs = this.getConfigs();
+    this.store = new ComponentStore();
+    this.store.fetchList({ cluster: this.cluster });
   }
 
   get prefix() {
-    return this.props.match.url
+    return this.props.match.url;
   }
 
   get cluster() {
-    return this.props.match.params.cluster
+    return this.props.match.params.cluster;
   }
 
-  getColor = healthy => (healthy ? '#f5a623' : '#55bc8a')
+  getColor = healthy => (healthy ? '#f5a623' : '#1890ff');
 
   getCount = type => {
-    const exceptionCount = this.store.exceptionCount
-    const healthyCount = this.store.healthyCount
+    const exceptionCount = this.store.exceptionCount;
+    const healthyCount = this.store.healthyCount;
 
-    return exceptionCount[type] || healthyCount[type] || 0
-  }
+    return exceptionCount[type] || healthyCount[type] || 0;
+  };
 
   getConfigs = () => [
     {
@@ -98,11 +98,11 @@ export default class ServiceComponents extends React.Component {
       icon: '/assets/dev-ops.svg',
       disabled: !globals.app.hasClusterModule(this.cluster, 'devops'),
     },
-  ]
+  ];
 
   handleTypeChange = type => {
-    this.setState({ type })
-  }
+    this.setState({ type });
+  };
 
   renderHeader() {
     return (
@@ -112,12 +112,13 @@ export default class ServiceComponents extends React.Component {
         description={t('SERVICE_COMPONENTS_DESC')}
         extra={<div className={styles.toolbar}>{this.renderBar()}</div>}
       />
-    )
+    );
   }
 
   renderBar() {
-    const exceptionCount = this.store.exceptionCount
-
+    const exceptionCount = this.store.exceptionCount;
+    // eslint-disable-next-line no-console
+    console.log('+++', exceptionCount);
     return (
       <div className="inline-block">
         <RadioGroup
@@ -137,7 +138,7 @@ export default class ServiceComponents extends React.Component {
             ))}
         </RadioGroup>
       </div>
-    )
+    );
   }
 
   renderCards(data) {
@@ -147,16 +148,16 @@ export default class ServiceComponents extends React.Component {
           <Card key={item.name} component={item} cluster={this.cluster} />
         ))}
       </div>
-    )
+    );
   }
 
   renderComponents(type) {
-    const { data } = this.store.list
-    const config = this.configs.find(item => item.type === type) || {}
-    const components = data[type]
+    const { data } = this.store.list;
+    const config = this.configs.find(item => item.type === type) || {};
+    const components = data[type];
 
     if (isEmpty(components)) {
-      return null
+      return null;
     }
 
     return (
@@ -166,22 +167,22 @@ export default class ServiceComponents extends React.Component {
         </div>
         {this.renderCards(components)}
       </div>
-    )
+    );
   }
 
   renderList() {
-    const { isLoading } = this.store.list
-    const { type } = this.state
+    const { isLoading } = this.store.list;
+    const { type } = this.state;
 
     if (isLoading) {
       return (
         <div className="loading">
           <Loading />
         </div>
-      )
+      );
     }
 
-    return this.renderComponents(type)
+    return this.renderComponents(type);
   }
 
   render() {
@@ -190,6 +191,6 @@ export default class ServiceComponents extends React.Component {
         {this.renderHeader()}
         {this.renderList()}
       </div>
-    )
+    );
   }
 }

@@ -16,17 +16,17 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react'
-import { toJS } from 'mobx'
-import UserStore from 'stores/user'
-import RoleStore from 'stores/role'
+import React from 'react';
+import { toJS } from 'mobx';
+import UserStore from 'stores/user';
+import RoleStore from 'stores/role';
 
-import { Avatar, Status } from 'components/Base'
-import Banner from 'components/Cards/Banner'
-import Table from 'components/Tables/List'
-import withList, { ListPage } from 'components/HOCs/withList'
+import { Avatar, Status } from 'components/Base';
+import Banner from 'components/Cards/Banner';
+import Table from 'components/Tables/List';
+import withList, { ListPage } from 'components/HOCs/withList';
 
-import { getLocalTime } from 'utils'
+import { getLocalTime } from 'utils';
 
 @withList({
   store: new UserStore(),
@@ -35,28 +35,28 @@ import { getLocalTime } from 'utils'
   name: 'WORKSPACE_MEMBER',
 })
 export default class Accounts extends React.Component {
-  roleStore = new RoleStore('workspaceroles')
+  roleStore = new RoleStore('workspaceroles');
 
   get canViewRoles() {
-    const { workspace } = this.props.match.params
+    const { workspace } = this.props.match.params;
     return globals.app.hasPermission({
       workspace,
       module: 'roles',
       action: 'view',
-    })
+    });
   }
 
   componentDidMount() {
     this.canViewRoles &&
-      this.roleStore.fetchList({ ...this.props.match.params, limit: -1 })
+      this.roleStore.fetchList({ ...this.props.match.params, limit: -1 });
   }
 
   showAction(record) {
-    return globals.user.username !== record.name
+    return globals.user.username !== record.name;
   }
 
   get itemActions() {
-    const { trigger, getData } = this.props
+    const { trigger, getData } = this.props;
 
     return [
       {
@@ -87,11 +87,11 @@ export default class Accounts extends React.Component {
             ...this.props.match.params,
           }),
       },
-    ]
+    ];
   }
 
   get tableActions() {
-    const { tableProps, routing, getData, trigger } = this.props
+    const { tableProps, routing, getData, trigger } = this.props;
     return {
       ...tableProps.tableActions,
       actions: [
@@ -132,11 +132,11 @@ export default class Accounts extends React.Component {
       emptyProps: {
         desc: t('WORKSPACE_MEMBER_EMPTY_DESC'),
       },
-    }
+    };
   }
 
   getColumns = () => {
-    const { prefix } = this.props
+    const { prefix } = this.props;
     return [
       {
         title: t('USERNAME'),
@@ -179,11 +179,11 @@ export default class Accounts extends React.Component {
           </p>
         ),
       },
-    ]
-  }
+    ];
+  };
 
   render() {
-    const { bannerProps, tableProps } = this.props
+    const { bannerProps, tableProps } = this.props;
     return (
       <ListPage {...this.props} noWatch>
         <Banner
@@ -200,6 +200,6 @@ export default class Accounts extends React.Component {
           searchType="name"
         />
       </ListPage>
-    )
+    );
   }
 }

@@ -16,20 +16,20 @@
  * along with KubeSphere Console.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { inject, observer } from 'mobx-react'
-import { isAppsPage } from 'utils'
-import { getScrollTop } from 'utils/dom'
-import { renderRoutes } from 'utils/router.config'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { inject, observer } from 'mobx-react';
+import { isAppsPage } from 'utils';
+import { getScrollTop } from 'utils/dom';
+import { renderRoutes } from 'utils/router.config';
 
-import { Header, GlobalNav } from 'components/Layout'
-import Tools from 'components/KubeTools'
-import GlobalSVG from 'components/SVG'
+import { Header, GlobalNav } from 'components/Layout';
+import Tools from 'components/KubeTools';
+import GlobalSVG from 'components/SVG';
 
-import styles from './index.scss'
+import styles from './index.scss';
 
-const appStoreScrollThreshold = 10
+const appStoreScrollThreshold = 10;
 
 @inject('rootStore')
 @observer
@@ -37,79 +37,79 @@ class BaseLayout extends Component {
   static propTypes = {
     children: PropTypes.node,
     location: PropTypes.object,
-  }
+  };
 
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.navRef = React.createRef()
-    this.headerRef = React.createRef()
+    this.navRef = React.createRef();
+    this.headerRef = React.createRef();
 
-    this.routes = props.route.routes
+    this.routes = props.route.routes;
   }
 
   get showKubeControl() {
-    return globals.app.isClusterAdmin
+    return globals.app.isClusterAdmin;
   }
 
   componentDidMount() {
-    document.addEventListener('scroll', this.handleScroll)
+    document.addEventListener('scroll', this.handleScroll);
   }
 
   componentDidUpdate(prevProps) {
-    const { showGlobalNav } = this.props.rootStore
+    const { showGlobalNav } = this.props.rootStore;
     if (showGlobalNav && showGlobalNav !== prevProps.rootStore.showGlobalNav) {
-      document.removeEventListener('click', this.handleClick)
-      document.addEventListener('click', this.handleClick)
+      document.removeEventListener('click', this.handleClick);
+      document.addEventListener('click', this.handleClick);
     }
 
     if (!globals.user && !isAppsPage(this.props.location.path)) {
-      location.href = '/login'
+      location.href = '/login';
     }
   }
 
   componentWillUnmount() {
-    document.removeEventListener('scroll', this.throttleScroll)
+    document.removeEventListener('scroll', this.throttleScroll);
   }
 
   handleScroll = () => {
     if (!this.headerRef || !this.headerRef.current) {
-      return
+      return;
     }
 
-    const scrollTop = getScrollTop()
-    const classes = this.headerRef.current.classList
-    const hasShadow = classes.contains('header-shadow')
-    const isDark = classes.contains('apps-dark-header')
+    const scrollTop = getScrollTop();
+    const classes = this.headerRef.current.classList;
+    const hasShadow = classes.contains('header-shadow');
+    const isDark = classes.contains('apps-dark-header');
 
     if (scrollTop >= 4 && !hasShadow) {
-      classes.add('header-shadow')
+      classes.add('header-shadow');
     } else if (scrollTop < 4 && hasShadow) {
-      classes.remove('header-shadow')
+      classes.remove('header-shadow');
     }
 
     if (isAppsPage()) {
       if (scrollTop >= appStoreScrollThreshold && !isDark) {
-        classes.add('apps-dark-header')
+        classes.add('apps-dark-header');
       } else if (scrollTop < appStoreScrollThreshold && isDark) {
-        classes.remove('apps-dark-header')
+        classes.remove('apps-dark-header');
       }
     }
-  }
+  };
 
   handleClick = e => {
     if (this.navRef.current && !this.navRef.current.contains(e.target)) {
-      this.props.rootStore.hideGlobalNav()
-      document.removeEventListener('click', this.handleClick)
+      this.props.rootStore.hideGlobalNav();
+      document.removeEventListener('click', this.handleClick);
     }
-  }
+  };
 
   handleJumpTo = link => {
-    this.props.rootStore.routing.push(link)
-  }
+    this.props.rootStore.routing.push(link);
+  };
 
   render() {
-    const { location, rootStore } = this.props
+    const { location, rootStore } = this.props;
     return (
       <div>
         <GlobalSVG />
@@ -130,8 +130,8 @@ class BaseLayout extends Component {
         <div className={styles.main}>{renderRoutes(this.routes)}</div>
         {globals.user && <Tools />}
       </div>
-    )
+    );
   }
 }
 
-export default BaseLayout
+export default BaseLayout;

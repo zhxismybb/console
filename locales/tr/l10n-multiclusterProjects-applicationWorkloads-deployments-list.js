@@ -43,7 +43,7 @@ module.exports = {
   ADD_CONTAINER_DESC: 'Bir kapsayıcı oluşturmak için kapsayıcı ayarlarını özelleştirin.',
   CONTAINERS: 'Konteynerler',
   IMAGE_TIME_SIZE_LAYER: 'Güncelle {time}',
-  IMAGE_DESC: 'Özel bir görüntü kayıt defteri kullanmak için önce bir görüntü kayıt defteri sırrı oluşturmanız gerekir. <a href={link} target="_blank">Daha Fazla Bilgi Edinin</a>',
+  IMAGE_DESC: 'Özel bir görüntü kayıt defteri kullanmak için önce bir görüntü kayıt defteri sırrı oluşturmanız gerekir.',
   IMAGE_PLACEHOLDER: 'Nginx gibi resim adı veya yolu: en son',
   IMAGE_EMPTY: 'Lütfen bir görsel seçiniz.',
   ENTER_POSITIVE_INTEGER_DESC: 'Lütfen pozitif bir tam sayı girin.',
