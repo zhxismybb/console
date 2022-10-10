@@ -28,8 +28,8 @@ server:
   apiServer:
     clientID: kubesphere
     clientSecret: kubesphere
-    url: http://10.10.110.104:30881
-    wsUrl: ws://10.10.110.104:30881
+    url: http://8.142.217.171:32344
+    wsUrl: ws://8.142.217.171:32344
 
   # docker image search default url
   dockerHubUrl: https://hub.docker.com

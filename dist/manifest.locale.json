@@ -1,48 +1,48 @@
 {
   "entrypoints": {
     "locale-ar": {
-      "json": ["locale-ar.ea301d706f011bf257fb.json"]
+      "json": ["locale-ar.json"]
     },
     "locale-en": {
-      "json": ["locale-en.6c6732754b8db4017508.json"]
+      "json": ["locale-en.json"]
     },
     "locale-es": {
-      "json": ["locale-es.a3a4c2209550d050b063.json"]
+      "json": ["locale-es.json"]
     },
     "locale-fr": {
-      "json": ["locale-fr.8d076f9ce3fdf25d9c65.json"]
+      "json": ["locale-fr.json"]
     },
     "locale-hi": {
-      "json": ["locale-hi.a128a00bbc7b81a2e7ca.json"]
+      "json": ["locale-hi.json"]
     },
     "locale-ko": {
-      "json": ["locale-ko.20379b5d517ee1e74b3c.json"]
+      "json": ["locale-ko.json"]
     },
     "locale-lt": {
-      "json": ["locale-lt.167294e99d51463b6cf1.json"]
+      "json": ["locale-lt.json"]
     },
     "locale-pl": {
-      "json": ["locale-pl.9312ada467c235a3839d.json"]
+      "json": ["locale-pl.json"]
     },
     "locale-tc": {
-      "json": ["locale-tc.358b65cd3462d18c2da0.json"]
+      "json": ["locale-tc.json"]
     },
     "locale-tr": {
-      "json": ["locale-tr.f08797b0c15312fa8da1.json"]
+      "json": ["locale-tr.json"]
     },
     "locale-zh": {
-      "json": ["locale-zh.f9ae1c9232c1813f860c.json"]
+      "json": ["locale-zh.json"]
     }
   },
-  "locale-ar.json": "locale-ar.ea301d706f011bf257fb.json",
-  "locale-en.json": "locale-en.6c6732754b8db4017508.json",
-  "locale-es.json": "locale-es.a3a4c2209550d050b063.json",
-  "locale-fr.json": "locale-fr.8d076f9ce3fdf25d9c65.json",
-  "locale-hi.json": "locale-hi.a128a00bbc7b81a2e7ca.json",
-  "locale-ko.json": "locale-ko.20379b5d517ee1e74b3c.json",
-  "locale-lt.json": "locale-lt.167294e99d51463b6cf1.json",
-  "locale-pl.json": "locale-pl.9312ada467c235a3839d.json",
-  "locale-tc.json": "locale-tc.358b65cd3462d18c2da0.json",
-  "locale-tr.json": "locale-tr.f08797b0c15312fa8da1.json",
-  "locale-zh.json": "locale-zh.f9ae1c9232c1813f860c.json"
+  "locale-ar.json": "locale-ar.json",
+  "locale-en.json": "locale-en.json",
+  "locale-es.json": "locale-es.json",
+  "locale-fr.json": "locale-fr.json",
+  "locale-hi.json": "locale-hi.json",
+  "locale-ko.json": "locale-ko.json",
+  "locale-lt.json": "locale-lt.json",
+  "locale-pl.json": "locale-pl.json",
+  "locale-tc.json": "locale-tc.json",
+  "locale-tr.json": "locale-tr.json",
+  "locale-zh.json": "locale-zh.json"
 }

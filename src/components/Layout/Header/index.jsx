@@ -83,6 +83,10 @@ class Header extends React.Component {
     );
   }
 
+  handleLinkClick = link => () => {
+    this.props.jumpTo(link);
+  };
+
   render() {
     const { className, innerRef, location } = this.props;
     // const logo = globals.config.logo || '/assets/images/logo4.svg';
@@ -116,6 +120,7 @@ class Header extends React.Component {
                 }),
                 styles.navBtn)
               }
+              onClick={this.handleLinkClick('/')}
             >
               <div className={styles.navElem}>
                 <Icon name="dashboard" type="light" />
