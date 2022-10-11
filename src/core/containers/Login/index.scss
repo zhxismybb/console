@@ -20,14 +20,19 @@
 
 .login {
   position: relative;
-  width: 320px;
+  width: 344px;
+  height: 420px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
+  background-image: url('/assets/console/2_1.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
   border-radius: 4px;
-  box-shadow: $base-shadow;
+  // box-shadow: $base-shadow;
   box-sizing: border-box;
-
+  padding-top: 60px;
+  filter: drop-shadow(10.5px 18.187px 125px rgba(0, 0, 0, 0.46));
   :global {
     .form-item-label {
       @include TypographySymbolText;
@@ -39,13 +44,14 @@
   }
 }
 
-.header {
-  position: relative;
-  font-weight: 600;
-  font-size: 12px;
-  color: $text-color;
-  line-height: 20px;
-  text-align: center;
+.login_header {
+  width: 200px;
+  height: 45.71px;
+  margin: 0 auto;
+  background-image: url('/assets/console/3.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
 }
 
 .divider {
@@ -115,20 +121,67 @@
   padding-left: 10%;
   z-index: 1;
 }
-.backElem {
+
+// .pwdIcon {
+//   background-image: url(/assets/console/5.png);
+// }
+.userIcon {
+  width: 20px;
+  height: 20px;
   position: absolute;
-  top: 0%;
-  right: 0;
-  bottom: 0%;
-  left: 0%;
-  background: $theme-light-color;
-  z-index: 0;
+  top: 8px;
+  left: 14px;
+  z-index: 2;
+}
+.themeInput {
+  border: unset;
+  border-radius: unset !important;
+  border-bottom: 1px solid #ccc;
+  background-size: auto 70%;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  padding-left: 44px !important;
+  border: unset !important;
+  border-bottom: 1px solid #ccc !important;
+  margin-bottom: 15px;
+}
+.fromstyle {
+  width: 230px;
+  margin: 0 auto;
+  padding-top: 35px;
 }
 .themeInput:focus {
   border-color: $theme-light-color !important;
   box-shadow: 0 4px 8px 0 #69c0ff33 !important;
 }
 .loginBtn {
-  background-color: $theme-color;
-  border-color: $theme-color;
+  height: 47px;
+  border-radius: 42px;
+  background-image: linear-gradient(90deg, #0025ac 0%, #1b8bd1 100%);
+  font-size: 16px;
+  line-height: 1.4 !important;
+  margin-top: 15px;
+}
+.loginPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/console/1.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* chrome */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 100px white inset;
+  box-shadow: 0 0 0px 100px white inset;
+}
+/* firefox */
+input {
+  filter: none !important;
+}
+input.input:not([readonly]):not([disabled]):focus {
+  background-color: rgba(255, 255, 255, 0) !important;
 }

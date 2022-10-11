@@ -101,14 +101,11 @@ export default class Login extends Component {
     const { formData, isSubmmiting, errorMessage } = this.state;
     return (
       <div className={styles.boxLayout}>
-        <div className={styles.backElem}></div>
-        <div className={styles.pageRight}>
-          <img src="/assets/images/logo4.svg" alt="" />
-        </div>
+        <div className={styles.loginPage}></div>
+        <div className={styles.pageRight}></div>
         <div className={styles.relativePos}>
           <div className={styles.login}>
-            <div className={styles.header}>{t('WELCOME')}</div>
-            <div className={styles.divider}></div>
+            <div className={styles.login_header}></div>
             {get(globals, 'oauthServers', []).map(server => (
               <div
                 key={server.url}
@@ -126,32 +123,53 @@ export default class Login extends Component {
                 message={t(errorMessage)}
               />
             )}
-            <Form data={formData} onSubmit={this.handleSubmit}>
-              <Form.Item
-                label={t('USERNAME_OR_EMAIL')}
-                rules={[
-                  {
-                    required: true,
-                    message: t('INPUT_USERNAME_OR_EMAIL_TIP'),
-                  },
-                ]}
-              >
-                <Input
-                  name="username"
-                  className={styles.themeInput}
-                  placeholder="user@example.com"
+            <Form
+              data={formData}
+              onSubmit={this.handleSubmit}
+              className={styles.fromstyle}
+            >
+              <div className="relative">
+                <img
+                  src="/assets/console/4.png"
+                  className={styles.userIcon}
+                  alt=""
                 />
-              </Form.Item>
-              <Form.Item
-                label={t('PASSWORD')}
-                rules={[{ required: true, message: t('PASSWORD_EMPTY_DESC') }]}
-              >
-                <InputPassword
-                  name="password"
-                  className={styles.themeInput}
-                  placeholder="Password"
+                <Form.Item
+                  rules={[
+                    {
+                      required: true,
+                      message: t('INPUT_USERNAME_OR_EMAIL_TIP'),
+                    },
+                  ]}
+                >
+                  <Input
+                    autoComplete="off"
+                    name="username"
+                    className={styles.themeInput}
+                    placeholder="user@example.com"
+                  />
+                </Form.Item>
+              </div>
+              <div className="relative">
+                <img
+                  src="/assets/console/5.png"
+                  className={styles.userIcon}
+                  alt=""
                 />
-              </Form.Item>
+                <Form.Item
+                  rules={[
+                    { required: true, message: t('PASSWORD_EMPTY_DESC') },
+                  ]}
+                >
+                  <InputPassword
+                    name="password"
+                    autoComplete="off"
+                    className={[styles.themeInput, styles.pwdIcon]}
+                    placeholder="Password"
+                  />
+                </Form.Item>
+              </div>
+
               <div className={styles.footer}>
                 <Button
                   type="control"
@@ -159,7 +177,7 @@ export default class Login extends Component {
                   className={styles.loginBtn}
                   loading={isSubmmiting}
                 >
-                  {t('LOG_IN')}
+                  立即登录
                 </Button>
               </div>
             </Form>
